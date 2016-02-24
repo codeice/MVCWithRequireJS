@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "报名完成";
+    Layout = null;
+}
+@*@section css{
+        <link href="~/Content/css/ApplyPublic.css" rel="stylesheet" />
+    }*@
+
+<div id="ProfileInfo" class="col-md-12">
+    <div class="tab-content">
+        <div class="col-md-12">
+            <label class="profile-title">基本信息</label><a id="upProfile" class="profile-update">修改</a>
+        </div>
+        <div class="col-md-12">
+            <hr class="hr-green" />
+            <hr class="hr-gray" />
+        </div>
+        <div class="col-md-3 myHeadDiv">
+            <img class="myHead" src="">
+            <div class="boredtop-img-div" id="g_Nickname"></div>
+        </div>
+        <div class="col-md-9 profileInfo">
+            <div class="col-md-6">
+                <label class="boredtop-info-title">姓名</label>
+                <label id="g_RealName" class="boredtop-info-text"></label>
+            </div>
+            <div class="col-md-6">
+                <label class="boredtop-info-title">性别</label>
+                <label id="g_Gender" class="boredtop-info-text"></label>
+            </div>
+
+            <div class="col-md-6 evenRow">
+                <label class="boredtop-info-title">生日</label>
+                <label id="g_Birthday" class="boredtop-info-text"></label>
+            </div>
+            <div class="col-md-6 evenRow">
+                <label class="boredtop-info-title">邮箱</label>
+                <label id="g_Email" class="boredtop-info-text"></label>
+            </div>
+
+            <div class="col-md-12">
+                <label class="boredtop-info-title">证件</label>
+                <label id="g_IdCardNo" class="boredtop-info-text"></label>
+            </div>
+
+            <div class="col-md-12 evenRow">
+                <label class="boredtop-info-title">地址</label>
+                <label id="g_Address" class="boredtop-info-text"></label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label class="profile-title">安全中心</label>
+        </div>
+        <div class="col-md-12">
+            <hr class="hr-green" />
+            <hr class="hr-gray" />
+        </div>
+        <div class="col-md-12 securityCenter">
+            <label class="Pigeon">√</label>
+            <label class="boredtop-info-title">手机</label>
+            <label id="g_CellNumber" class="boredtop-info-text"></label>
+            <a id="upCellNum" class="securityCenter-update">修改</a>
+        </div>
+        <div class="col-md-12">
+            <hr class="hr-dashed">
+        </div>
+    </div>
+</div>
+
+
+<div class="row form-row UserProfileForm" id="UserProfileForm">
+    <form>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip">*</span>姓名
+            </label>
+            <input type="text" id="up_RealName" data-verify="required" error-message="姓名不能为空！" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip"></span>昵称
+            </label>
+            <input type="text" id="up_Nickname" data-verify="required" error-message="昵称不能为空！" />
+        </div>
+        <div class="control-group" id="IdCardNoDiv">
+            <label class="form-label">
+                <span class="require-tip">*</span>证件
+            </label>
+            <input type="text" id="up_IdCardNo" data-verify="idcard" error-message="证件不合法！" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip"></span>性别
+            </label>
+            <input type="text" id="up_Gender" readonly="readonly"  class="input-readonly" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip"></span>生日
+            </label>
+            <input type="text" id="up_Birthday" readonly="readonly" class="input-readonly" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip">*</span>邮箱
+            </label>
+            <input type="text" id="up_Email" data-verify="email" error-message="邮箱格式不正确！" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip"></span>地址
+            </label>
+            <input type="text" id="up_Address" />
+        </div>
+        <div class="control-group">
+            <label class="form-label">
+                <span class="require-tip"></span>头像
+            </label>
+            <button class="btn-yellow upload" type="button" id="upload-portrait">上传头像</button>
+        </div>
+        <div class="btn-upProfile">
+            <button id="btn-backProfile" type="button" class="btn-green min">返回</button>
+            <button id="btn-saveProfile" type="button" class="btn-green min">保存</button>
+        </div>
+    </form>
+</div>
+<!--错误提示信息-->
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div id="userProfile-help-block" class="alert alert-danger contatcStutas" role="alert">
+            <strong>错误提示!</strong>
+        </div>
+    </div>
+</div>
+@*<div id="upProfile" class="btn-green upMyProfile">点击修改</div>*@
+
+<!--<div class="control-group user-center">
+    <button id="upProfile" type="button" class="btn-green">点击修改</button>
+    <button id="upCellNum" type="button" class="btn-green min">修改手机号</button>
+</div>-->
+
+<!--修改手机号-->
+<div id="updateCellNumber">
+    @{ Html.RenderAction("UpdateCellNumber", "UserCenter"); }
+</div>
+
+@*@section footerScripts{
+        <script type="text/javascript" data-main="@Url.Content("~/js/modules/usercenter/userProfileCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+    }*@

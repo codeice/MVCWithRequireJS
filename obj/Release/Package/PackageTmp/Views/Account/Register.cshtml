@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "用户注册";
+}
+
+@section css
+{
+    <link href="@Url.Content("~/Content/css/sportsMatch.css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/css/normalize.css")" rel="stylesheet"/>
+}
+<body>
+    <form role="form">
+        @Html.AntiForgeryToken()
+        <div class="boss">
+            <div class="login_body">
+                <div class="loginbody_top"></div>
+                <div class="login_content">
+                    <div class="login_content_top">
+                        <div class="login_content_top_left">赛圈</div>
+                        <div class="login_content_top_right">注册账号</div>
+                    </div>
+                    <div class="login_content_body">
+                        <div class="padding-20 registerDiv">
+                            <div class="lcb_top_left_username divPhone">
+                                <div class="lcb_top_left_username_div divPhone2">
+                                    <input id="CellNumber" class="lcb_top_left_username_input" type="text" placeholder="请输入手机号" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <input id="getPhone" type="button" class="registeGetValidCode-disable" value="发送验证码" />
+                        </div>
+                        <div class="registerDiv">
+                            <div class="lcb_top_left_icon pwdLogo">
+                                <div class="lcb_top_left_username_div setPwdDiv">
+                                    <input id="registerPwd" type="password" class="lcb_top_left_username_input" placeholder="请设置密码" />
+                                </div>
+                            </div>
+                            <div class="lcb_top_left_icon VerificationLogo">
+                                <div class="lcb_top_left_username_div inputVC">
+                                    <input id="VerificationCode" class="lcb_top_left_username_input txtVCode" type="text" placeholder="填写验证码" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="registe_tip">
+                            <input type="checkbox" id="agreeRule" class="checkboxLogin" />
+                            阅读并接受《<a id="Agreement" data-toggle="modal" data-target="#alertBox">协议</a>》
+                        </div>
+                        <button id="btnSubmit" class="lcb_center" type="button">注　册</button>
+                    </div>
+                    <div class="login_content_bottom">
+                        已拥有赛圈账号？<a href="@Url.Action("Login", "Account")">马上登陆</a>！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--协议弹出窗口-->
+    <div class="modal fade" id="alertBox">
+        <div class="modal-dialog agreeBox">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">用户注册协议</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="" id="iframepage"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-green-close" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section footerScripts
+{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/account/registerCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}
+@*<script type="text/javascript" src="~/libs/jquery.nicescroll.js"></script>
+    <script type="text/javascript">
+        //设置滚动条
+        $("#alertBox").niceScroll({
+            cursorcolor: "#E5E5E5",
+            cursoropacitymax: 1,
+            touchbehavior: false,
+            cursorwidth: "5px",
+            cursorborder: "0",
+            cursorborderradius: "5px"
+        });
+    </script>*@
+
+

@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "修改手机号";
+    Layout = null;
+}
+
+<div class="row ">
+    <div class="col-md-12">
+        <div class="contact-header bb-green" >
+            修改手机号
+        </div>
+
+        <div id="step1" class="col-md-12">
+            <div class="stepflex row">
+                <dl class="first doing">
+                    <dt class="s-num">1</dt>
+                    <dd class="s-text">验证身份</dd>
+                    <dd></dd>
+                </dl>
+                <dl class="normal">
+                    <dt class="s-num">2</dt>
+                    <dd class="s-text">绑定新手机</dd>
+                </dl>
+                <dl class="last">
+                    <dt class="s-num ">&nbsp;</dt>
+                    <dd class="s-text">完成</dd>
+                </dl>
+            </div>
+            <div class="step1Content">
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>手机号码：
+                    </label>
+                    <label id="lblcellNumber" class="form-label"></label>
+                </div>
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>短信验证码：
+                    </label>
+                    <input class="h28" type="text" id="vCode" data-verify="required" disabled="disabled" />
+                    <input id="sendVCode" type="button" class="verificationCode" value="发送验证码" />
+                </div>
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>图形验证码：
+                    </label>
+                    <input class="h28" type="text" id="randomCode" placeholder="填写右侧5位验证码"/><img class="randomCodeImg" id="randomCodeImg1" src=""/>看不清？<a id="refreshRandomCode">换一张</a>
+                </div>
+                <div class="stepflex control-group">
+                    <button id="btn-upCellBack" type="button" class="btn-green">返回</button>
+                    <button id="btn-firstNext" type="button" class="btn-green min">下一步</button>
+                </div>
+            </div>
+        </div>
+        <div id="step2" class="col-md-12">
+            <div class="stepflex row">
+                <dl class="first doing">
+                    <dt class="s-num">1</dt>
+                    <dd class="s-text">验证身份</dd>
+                    <dd></dd>
+                </dl>
+                <dl class="normal doing">
+                    <dt class="s-num">2</dt>
+                    <dd class="s-text">绑定新手机</dd>
+                </dl>
+                <dl class="last">
+                    <dt class="s-num">&nbsp;</dt>
+                    <dd class="s-text">完成</dd>
+                </dl>
+            </div>
+            <div class="step2Content">
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>新手机号：
+                    </label>
+                    <input class="h28" type="text" id="newCellNumber" data-verify="required" />
+                </div>
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>短信验证码：
+                    </label>
+                    <input class="h28" type="text" id="vCode2" data-verify="required" disabled="disabled" />
+                    <input id="sendVCode2" class="verificationCode-disable" disabled="disabled" type="button" value="发送验证码" />
+                </div>
+                <div class="col-md-offset-3 control-group">
+                    <label class="form-label">
+                        <span class="require-tip"></span>验证码：
+                    </label>
+                    <input type="text" id="randomCode2" placeholder="填写右侧5位验证码"/><img id="randomCodeImg2" class="randomCodeImg" src=""/>看不清？<a id="refreshRandomCode2">换一张</a>
+                </div>
+                <div class="stepflex control-group">
+                    <button id="btn-submitNext" type="button" class="btn-green">提交</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="step3" class="col-md-12">
+            <div class="stepflex row">
+                <dl class="first doing">
+                    <dt class="s-num">1</dt>
+                    <dd class="s-text">验证身份</dd>
+                    <dd></dd>
+                </dl>
+                <dl class="normal doing">
+                    <dt class="s-num">2</dt>
+                    <dd class="s-text">绑定新手机</dd>
+                </dl>
+                <dl class="last doing">
+                    <dt class="s-num done">&nbsp;</dt>
+                    <dd class="s-text">完成</dd>
+                </dl>
+            </div>
+            <div class="step3Content">
+                <div class="stepflex control-group">
+                    已成功修改手机号，下次登录请用新的手机号登录!
+                </div>
+                <div class="stepflex control-group">
+                    <button id="btn-back" type="button" class="btn-green">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

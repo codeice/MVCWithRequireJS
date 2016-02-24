@@ -1,0 +1,55 @@
+﻿/*内容左侧，进度图片样式*/
+.page-header-part{background-color:white;margin-bottom:20px;overflow:hidden;}
+.workOnline{width:672px;height:160px;margin-left:auto;margin-right:auto;margin-bottom: 10px;}
+.workOnline div{width:224px;height:120px;float:left;line-height:200px;font-size:16px;font-weight:700;text-align:center;}
+.confirm_01{background-image:url('../images/cansaixinxiqueren_01.png');background-repeat:no-repeat;color:#71B896;}
+.confirm_02{background-image:url('../images/cansaixinxiqueren_02.png');background-repeat:no-repeat;color:#D7D7D7;}
+.pay_01{background-image:url('../images/zhifubaomingfei_01.png');background-repeat:no-repeat;color:#71B896;}
+.pay_02{background-image:url('../images/zhifubaomingfei_02.png');background-repeat:no-repeat;color:#D7D7D7;}
+.fish_01{background-image:url('../images/wanchengbaoming_01.png');background-repeat:no-repeat;color:#71B896;}
+.fish_02{background-image:url('../images/wanchengbaoming_02.png');background-repeat:no-repeat;color:#D7D7D7;}
+
+/*订单中的报名清单*/
+.orderDetail{margin-top:20px;padding-left:15px;padding-right:15px;}
+.orderDetail li .projectMain{height:56px;background-image:url("../images/wdddjiahao.png");background-repeat:no-repeat;background-position:15px center;background-color:#ECECEC;line-height:56px;padding-left:45px;font-size:16px;color:#717171;font-weight:500;cursor:pointer;margin-top:10px;}
+.orderDetail li .minus{background-image:url('../images/wdddjianhao.png') !important;}
+.orderDetail li .projectList{display:none;background-color:#F3F3F3;margin-top:10px;margin-left:20px;padding:15px;line-height:30px;}
+.orderDetail li .projectList label{font-size:16px;color:#6EBC95;}
+.orderDetail li .projectList .projectName{font-size:16px;}
+.orderDetail li .projectList table thead tr{background-color:#585858;color:white;}
+.deleteBtn{width:16px;height:16px;background-image:url('../images/icon-delete-active.png');cursor:pointer;margin-left:auto;margin-right:auto;}
+
+/*按钮*/
+.operateDiv{margin-top:20px;margin-bottom:40px;text-align:center;border-top:1px solid #ECECEC;padding-top:40px;}
+.operateDiv button{background-color:#51B384;color:white;font-size:16px;font-weight:500;}
+.operateDiv button:hover{background-color:#48A679;color:white;}
+.btnUpdate{width:112px;}
+.btnGoPay{outline: none;padding: 6px 12px;border: none;border-radius: 5px; -webkit-borderr-radius: 5px;height: 40px;width:196px;}
+
+/*支付页面*/
+.orderInfoValue{display: inline-block;margin-left: 10px; font-size: 17px;color: #858585;line-height: 50px;text-align: left;}
+.btnPay{outline: none; border: none;color: white;font-size: 17px; width: 110px;height: 40px;background-image: url('../images/indexljbm.png');background-position: 0 0;}
+.btnPay:hover{ background-position: 0 -40px;}
+.alipay{margin-left: 20px;display: block;float: right; width: 98px;height: 30px;background: url('../images/alipay.jpg') no-repeat 0px center;}
+.payText{width: 672px;margin-top: 15px; margin-left: auto; margin-right: auto;text-align: center;color: #4EA47D;font-size: 19px;line-height: 65px;font-weight: bold;}
+.qrIframe{border: none; height: 109px;width: 109px;float: right;overflow: hidden; }
+.qrSpan{ float: right;display: inline-block;}
+.weixinPay-div{margin-top: 10px;margin-bottom: 10px; display: inline-block; text-align: center;font-size: 13px;color: #858585;width: 90px;height: 110px;}
+#total0,#total0Confirm{ display: none;}
+.bb-gray{ border-bottom: 2px solid #E3E3E3;}
+.newOrderUl{ text-align: left;}
+.newOrderUl li{ border-bottom: 2px dotted #CDCDCD;list-style-image: url(../images/point-green.png);list-style-position: inside;}
+.newOrderList{ width: 672px;margin: 0 auto;}
+.money{ color: #6FB996;font-size: 17px;float: right;line-height: 52px;}
+.right-amount{ font-size: 17px;color: #707070;float: right;line-height: 52px;}
+.newPayType{width: 672px;height: 264px; margin: 0 auto 35px auto;padding-top: 30px;padding-bottom: 30px; border: 3px solid #E3E3E3;background-color: #F6F6F6;}
+.wechatPayContent{ float: left;width: 210px;height: 204px; border-right: 1px dotted #CDCDCD;}
+.pay-type{ font-size: 16px;color: #6F6F6F;text-align: center;font-weight: bold;}
+.new-qrImg{text-align: center; width: 115px;height: 115px;border: 3px solid #E3E3E3;margin: 26px 44px 20px 45px;}
+.pay-type-title{ color: #6FB996;}
+.alipayContent{ width: 450px;float: left;text-align: left;}
+.pay-type label{ margin-left: 30px;}
+.ui-radio{ padding-left: 30px;padding-top: 25px;}
+.alipay-button{ width: 450px;text-align: center;}
+.pay-type-radios{ width: 450px;height: 140px;}
+.buttonDiv{margin-top: 25px;margin-bottom: 25px; padding-top: 20px;text-align: center;}

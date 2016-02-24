@@ -1,0 +1,304 @@
+﻿ <!--常用联系人-->
+<div class="tool-bar">
+    <div class="col-md-12 btn-bar">
+        <span class="btn btn-grey" ng-class="{'btn-grey-close':!isOpen}" ng-click="toggleShowContact()">
+            常用联系人
+            <i class="icon-arrow-down"> </i>
+        </span>
+    </div>
+    <div class="col-md-12 contact-container " ng-class="{'contact-container-show':isOpen}">
+        <div class="row">
+            <div class="col-md-2" ng-repeat="user in contacts">
+                <span ng-click="selectContact(user)">{{user.Name}}</span>
+            </div>
+        </div>
+    </div>
+    <!--队名-->
+    <div class="col-md-12  col-md-12-ext" ng-show="player.TeamKey!=null&& player.TeamKey!=undefined">
+        <div class="alert alert-green">
+            <strong>当前队伍：</strong>
+            <span ng-bind="player.TeamName"></span>
+            <ul class="alert-action">
+                <li ng-click="changeTeam()">更换队伍</li>
+                <li ng-click="clearCurrentTeam()">清空队伍</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!--表单部分-->
+<form role="form" name="playerForm" id="playerForm" novalidate="">
+    <div class="form-wrapper">
+        <!--基本信息-->
+        <div class="row form-row">
+            <div class="form-row-tag">基本信息</div>
+            <div class="form-row-btn" ng-click="resetMemberForm()" ng-show="isGroupType">清空</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-person"></div>
+            </div>
+            <div class="col-sm-10 col-md-10  col-md-10-ext">
+                <div class="row">
+                    <input type="hidden" name="contactId" ng-model="player.ContactId" />
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext">
+                        <div class="control-group" ng-class="{'has-error':playerForm.Name.$dirty&& playerForm.Name.$error.required}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>姓名
+                            </label>
+                            <input type="text" name="Name" ng-model="player.Name" required ng-if="player.ContactId==null" />
+                            <input type="text" class="input-readonly" name="Name" ng-model="player.Name" readonly="readonly" ng-if="player.ContactId!=null" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Blood">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>血型
+                            </label>
+                            <select ng-model="player.Blood" ng-options="item as item for item in bloodList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @*联系人的身份证号*@
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-if="player.ContactId!=null">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>身份证号
+                            </label>
+                            <input type="text" class="input-readonly" readonly="readonly" name="IdCardNo" ng-model="player.IdCardNo">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-if="player.ContactId==null">
+                        <div class="control-group" ng-class="{'has-error':playerForm.IdCardNo.$dirty&& (playerForm.IdCardNo.$error.required||playerForm.IdCardNo.$error.pattern||isAgeInvalid)}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>身份证号
+                            </label>
+                            @*      <input type="text" name="IdCardNo" ng-model="player.IdCardNo" ng-pattern="/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}[0-9Xx]$/" required ng-blur="checkIdCardNo()" />*@
+                            <input type="text" name="IdCardNo" ng-model="player.IdCardNo" valid-id-card-no required ng-blur="checkIdCardNo()" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span> 性别
+                            </label>
+                            <label class="form-label" ng-bind="player.Gender|genderFormat">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Health">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>健康状况
+                            </label>
+                            <input type="text" name="Health" ng-model="player.Health" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Occupation">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>职业
+                            </label>
+                            <input type="text" name="Occupation" ng-model="player.Occupation" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Company">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>单位
+                            </label>
+                            <input type="text" name="Company" ng-model="player.Company" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.District">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>所属区域
+                            </label>
+                            <select ng-model="player.District" ng-options="item.Code as item.Value for item in districtList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--联系方式-->
+        <div class="row form-row">
+            <div class="form-row-tag">联系方式</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-mail"></div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-md-10-ext">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext">
+                        <div class="control-group" ng-class="{'has-error':playerForm.Mobile.$dirty&& playerForm.Mobile.$error.pattern}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span> 手机号码
+                            </label>
+                            <input type="text" ng-if="player.ContactId==null" name="Mobile" ng-model="player.Mobile" required valid-mobile />
+                            <input type="text" ng-if="player.ContactId!=null" class="input-readonly" name="Mobile" ng-model="player.Mobile" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Email">
+                        <div class="control-group" ng-class="{'has-error':playerForm.Email.$dirty&& playerForm.Email.$error.email}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>邮箱
+                            </label>
+                            <input type="email" name="Email" ng-model="player.Email" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Tel">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>电话
+                            </label>
+                            <input type="text" name="Tel" ng-model="player.Tel" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.Address">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>住址
+                            </label>
+                            <input type="text" name="Address" ng-model="player.Address" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.EmergencyContact">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>紧急联系人
+                            </label>
+                            <input type="text" name="EmergencyContact" ng-model="player.EmergencyContact" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--其他信息-->
+        <div class="row form-row" ng-show="memberForm.DressSize|| memberForm.ShoesSize">
+            <div class="form-row-tag">其他信息</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-other"></div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-md-10-ext">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.DressSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>服装尺寸
+                            </label>
+                            <select ng-model="player.DressSize" ng-options="item.Code as item.Value for item in dressSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="memberForm.ShoesSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>鞋码
+                            </label>
+                            <select ng-model="player.ShoesSize" ng-options="item.Code as item.Value for item in shoesSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--错误提示信息-->
+        <div class="row">
+            <div class="col-md-12">
+                <span class="error-tip" ng-show="playerForm.Name.$dirty||isSubmitted">
+                    <span ng-show="playerForm.Name.$error.required">姓名不能为空！</span>
+                </span>
+
+                <span class="error-tip" ng-show="playerForm.IdCardNo.$dirty||isSubmitted">
+                    <span ng-show="playerForm.IdCardNo.$error.required">身份证号不能为空！</span>
+                    <span ng-show="playerForm.IdCardNo.$error.validIdCardNo">身份证号无效！</span>
+                    <span ng-show="!playerForm.IdCardNo.$error.validIdCardNo&&!isIdCardNoUnique">一个身份证在同一项目中只能报名一次！</span>
+                    <span ng-show="!playerForm.IdCardNo.$error.validIdCardNo&& isIdCardNoUnique&& isAgeInvalid">可报名年龄在{{project.MinAge}}-{{project.MaxAge}}之间！</span>
+                    <span ng-show="!playerForm.IdCardNo.$error.validIdCardNo&& isGenderInvalid">只能<span>{{project.GenderRestrict|genderFormat}}性报此项目</span></span>
+                    <span ng-show="!playerForm.IdCardNo.$error.validIdCardNo&& isGenderMixedInvalid">混双项目必须只能填一男一女</span>
+                </span>
+
+                <span class="error-tip" ng-show="isSubmitted">
+                    <span ng-show="!isContactUnique">一个人在一个项目中只能报名一次</span>
+                </span>
+
+                <span class="error-tip" ng-show="playerForm.Mobile.$dirty||isSubmitted">
+                    <span ng-show="playerForm.Mobile.$error.required">手机号必填！</span>
+                    <span ng-show="playerForm.Mobile.$error.validMobile">手机号无效！</span>
+                </span>
+
+                <span class="error-tip" ng-show="playerForm.Email.$dirty||isSubmitted">
+                    <span ng-show="playerForm.Email.$error.email">邮箱无效！</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions center" ng-hide="isGroupType">
+        <div class="col-md-12">
+            <button type="button" class="btn-save btn-reset" ng-click="resetMemberForm()">清空</button>
+            <button type="button" class="btn-save" ng-click="saveSingleSignUp()">保存</button>
+        </div>
+    </div>
+
+    <!--队员列表-->
+    <div class="row form-table-row" ng-show="isGroupType">
+        <div class="row-header">
+            <div class="row-header-action">
+                <span class="btn btn-green" ng-click="addToMembers()" ng-disabled="isDisabledAddBtn">添加到队员列表</span>
+                <i class="arrow-down"></i>
+            </div>
+        </div>
+        <div class="row-content">
+            <div class="row-content-header">
+                <span class="count-tag">已添加队员(<span ng-bind="signUpModel.Members.length"></span>)</span>
+
+            </div>
+            <!--表格-->
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">姓名</th>
+                        <th class="col-md-3">电话</th>
+                        <th class="col-md-4">身份证号</th>
+                        <th class="col-md-1">编辑</th>
+                        <th class="col-md-1">删除</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in signUpModel.Members">
+                        <td ng-bind="item.Name"></td>
+                        <td ng-bind="item.Mobile"></td>
+                        <td ng-bind="item.IdCardNo"></td>
+                        <td><i class="icon-edit" ng-click="editMember(item)"></i></td>
+                        <td><i class="icon-delete" ng-click="deleteFromMembers(item)"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-tip">
+                <span class="require-tip">*</span>最少报名人数为 <strong ng-bind="project.MinPlayersCount "></strong> ,最多报名人数为 <strong ng-bind="project.MaxPlayersCount"></strong>
+            </div>
+        </div>
+        <div class="row-action">
+            <button type="button" class="btn-save" ng-class="{'btn-disabled':isDisabledSaveBtn}" ng-click="!isDisabledSaveBtn&& saveCombinationSignUp()">保存报名信息</button>
+        </div>
+    </div>
+</form>

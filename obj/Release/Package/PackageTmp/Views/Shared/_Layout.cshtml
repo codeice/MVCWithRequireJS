@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>@ViewBag.Title</title>
+        <link href="~/Content/css/normalize.css" rel="stylesheet" />
+        <link href="~/libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/css/layout.css" rel="stylesheet" />
+        @RenderSection("css", false)
+        <script src="~/libs/jquery/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        @Html.Partial("~/Views/Shared/_Header.cshtml")
+        <div class="page-wrapper">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+
+        <script type="text/javascript">
+            var siteName = "@Url.Content("~/")";
+            var baseUrl = window.location.protocol + "//" + window.location.host + siteName;
+        </script>
+        @Scripts.Render("~/bundles/jquery.plugin")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/bootbox")
+        <script src="~/js/common/config.js"></script>
+        <script src="~/js/common/utility.js"></script>
+        <script src="~/js/requireConfig.js"></script>
+        <script src="~/js/modules/account/logOff.js"></script>
+        <!--页面js-->
+        @RenderSection("footerScripts", false)
+    </body>
+</html>
+
+

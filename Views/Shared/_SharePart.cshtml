@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "分享模块";
+}
+<style>
+    .bdselect_share_box {
+        width: 110px !important;
+    }
+
+    .bdselect_share_head {
+        width: 109px !important;
+    }
+</style>
+<!--分享模块大屏-->
+<div class="row share-part visible-sm visible-lg">
+    <div class="col-md-12">
+        <div class="share-header">
+            <span class="share-title">分享活动</span>
+        </div>
+    </div>
+    <div class="col-md-12 share-btns bdsharebuttonbox">
+        <a href="javascript:void(0)" class="share-icon share-weibo " data-cmd="tsina" title="分享到新浪微博"><span>新浪微博</span></a>
+        <a href="javascript:void(0)" class="share-icon share-weixin" data-cmd="weixin" title="分享到微信"><span>微信</span></a>
+        <a href="javascript:void(0)" class="share-icon share-code" data-toggle="modal" data-target="#codeModal"><span>二维码</span></a>
+    </div>
+</div>
+
+<!--分享模块中屏-->
+<div class="row share-part-md  visible-md">
+    <div class="share-part-md-title">分享</div>
+    <div class="share-part-md-body bdsharebuttonbox">
+        <a class="share-icon-md share-weibo " data-cmd="tsina" title="分享到新浪微博"></a>
+        <a class="share-icon-md share-weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a class="share-icon-md share-code" data-toggle="modal" data-target="#codeModal"></a>
+    </div>
+</div>
+
+<!--下载APP弹出层-->
+<div class="modal fade" id="codeModal">
+    <div class="modal-dialog">
+        <div class="modal-content  custom-modal-content">
+            <div class="modal-body custom-modal-body">
+                <button type="button" class="custom-modal-close close" data-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center margin-top-20">
+                    <img src="@Url.Content("~/Content/images/app-QRCode.png")" />
+                    <h4 class="h-title">扫码下载App</h4>
+                </div>
+            </div>
+            <div class="modal-footer custom-modal-footer">
+                <button type="button" class="btn modal-btn" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/js/common/bdShare.js")"></script>

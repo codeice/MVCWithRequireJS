@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "支付报名费";
+}
+@section css{
+    <link href="~/Content/css/order.css" rel="stylesheet" />
+}
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Home")">活动列表</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">支付报名费</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container" id="payApp" ng-controller="payCtrl">
+    <div class="row">
+        <!--左半部分-->
+        <div class="col-md-9 col-sm-12 text-center ">
+            <div class="page-header-part">
+                <!--上半部分-->
+                <div class="col-md-12">
+                    <div class="workOnline margin-top-20 bb-gray">
+                        <div class="confirm_01">参赛信息确认</div>
+                        <div class="pay_01" id="total0Text"></div>
+                        <div class="fish_02">完成报名</div>
+                    </div>
+                </div>
+
+                <!--下半部分-->
+                <div class="col-md-12">
+                    <!--新版本-->
+                    <div class="newOrderList">
+                        <ul class="newOrderUl" ng-repeat="order in orders">
+                            <li><span class="orderInfoValue" ng-bind="order.CompetitionName"></span>
+
+                                <span class="money" ng-bind="order.Balance"></span><span class="right-amount">￥</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12" id="total0">
+                    <div class="payText">请选择支付方式</div>
+                    <!--新版本-->
+                    <div class="newPayType">
+                        <div class="wechatPayContent">
+                            <div class="pay-type">微信支付</div>
+                            <div class="new-qrImg">
+                                <iframe class="qrIframe" scrolling="no" ng-src="{{weChatPayUrl}}"></iframe>
+                            </div>
+                            <div class="pay-type-title">微信“扫一扫”</div>
+                        </div>
+                        <div class="alipayContent">
+                            <div class="pay-type">其他支付方式</div>
+                            <div class="pay-type-radios">
+                              <label class="ui-radio">
+                                <input type="radio" name="payType" class="ui-radio" value="aliPay" ng-model="payType">
+                                <span class="icon-radio"></span>
+                                <span class="alipay"></span>
+                            </label>  
+                            </div>
+                            
+                            <div class="alipay-button">
+                                <button class="btnPay" ng-show="payType=='aliPay'" ng-click="aliPay()" data-toggle="modal" data-target="#payModal">前往支付</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 buttonDiv" id="total0Confirm">
+                    <button class="btnPay" ng-click="confirmOrder()">确认</button>
+                </div>
+            </div>
+        </div>
+        <!--右半部分-->
+        <div class="col-md-3 col-sm-12">
+            <!--分享模块-->
+            @Html.Partial("~/Views/Shared/_SharePart.cshtml")
+
+            <!--最近报名-->
+        </div>
+    </div>
+
+    <!--支付宝支付弹出支付提示信息层-->
+    <div class="modal fade" id="payModal">
+        <div class="modal-dialog">
+            <div class="modal-content  custom-modal-content">
+                <div class="modal-header md-header">
+                    <h4>支付提示</h4>
+                </div>
+                <div class="modal-body custom-modal-body">
+                    <div class="text-center margin-top-20">
+                        <h4>支付完成前，请不要关闭此窗口！</h4>
+                        <h4 class="">支付完成后，请根据您的支付情况点击下面按钮</h4>
+                    </div>
+                </div>
+                <div class="modal-footer custom-modal-footer">
+                    <button type="button" class="btn modal-btn" ng-click="payError()">支付遇到问题</button>
+                    <button type="button" class="btn modal-btn" ng-click="payFinish()">支付完成</button>
+                    @* <button type="button" class="btn modal-btn" data-dismiss="modal">关闭</button>*@
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</div>
+
+
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/signUp/payCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}

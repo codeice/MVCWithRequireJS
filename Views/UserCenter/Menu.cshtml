@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "个人中心";
+}
+
+<link href="~/Content/css/nestable.css" rel="stylesheet" />
+<link href="~/Content/css/userCenter.css" rel="stylesheet" />
+<!--个人中心导航部分-->
+<div class="col-md-3 col-sm-3 col-xs-3 menu-container">
+    <div class="menu-left">
+        <div class="menu-header">
+            <img class="img-responsive" src="@Url.Content("~/Content/images/userCenter-bg.png")" />
+        </div>
+        <div class="tabs-nav-left">
+            <ul id="menu-wrapper" class="nav nav-pills nav-stacked custom-nav-left">
+                <li class="active">
+                    <a href="@Url.Action("UserProfile", "UserCenter")">个人资料</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyOrder", "UserCenter")">我的订单</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyEvents", "UserCenter")">我的赛事</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyScore", "UserCenter")">我的成绩</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MyContacts", "UserCenter")">我的联系人</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="book-tag">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = window.location.pathname;
+    $(function () {
+        $("#menu-wrapper>li").each(function () {
+            var $a = $(this).children('a');
+            var href = $a.attr("href");
+            if (href == path) {
+                $(this).addClass("active").siblings().removeClass("active");
+            }
+        });
+    });
+</script>

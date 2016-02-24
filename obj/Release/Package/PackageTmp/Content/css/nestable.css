@@ -1,0 +1,101 @@
+﻿/***nestable list****/
+.nestable-list .ui-list .list-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.nestable-list .item-handle {
+    padding: 15px 21px 15px 17px;
+    background: #ececec;
+}
+
+    .nestable-list .item-handle .icon-plus,
+    .nestable-list .item-handle .icon-minus {
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        width: 17px;
+        height: 16px;
+        background: url('../images/icon-plus.png') no-repeat;
+        margin-right: 16px;
+    }
+
+    .nestable-list .item-handle .icon-minus {
+        background: url('../images/icon-minus.png') no-repeat;
+    }
+
+    .nestable-list .item-handle .item-radio {
+        position: relative;
+        top: -3px;
+        padding-right: 10px;
+        padding-top: 0;
+    }
+
+.item-handle > .item-title,
+.item-handle > .item-tag,
+.item-handle > .item-desc {
+    font-size: 18px;
+    color: #656565;
+    font-weight: 500;
+}
+
+    .item-handle > .item-title > strong {
+        font-weight: normal;
+        font-size: 16px;
+    }
+
+        .item-handle > .item-title > strong > em {
+            font-style: normal;
+            color: #4fb485;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+.item-handle > .item-desc {
+    float: right;
+}
+
+    .item-handle > .item-desc > strong {
+        color: #50b485;
+        font-size: 26px;
+    }
+
+/****************sub *****************/
+.ui-list .list-item .ui-list {
+    padding-left: 44px;
+    display: none;
+}
+
+.list-item .ui-list .item-handle {
+    margin: 5px auto;
+    padding: 10px 21px 10px 10px;
+    background: transparent;
+}
+
+.list-item .ui-list .list-item:hover .item-handle {
+    background: #f4f4f4;
+}
+
+.list-item .ui-list .item-handle > .item-title,
+.list-item .ui-list .item-handle > .item-tag,
+.list-item .ui-list .item-handle > .item-desc {
+    font-size: 16px;
+    display: inline-block;
+    width: 25%;
+}
+
+.list-item .ui-list .item-handle > .item-tag {
+    margin-left: 60px;
+}
+
+
+.list-item .ui-list .item-handle > .item-desc {
+    float: none;
+    margin-left: 55px;
+}
+
+    .list-item .ui-list .item-handle > .item-desc > strong {
+        font-weight: normal;
+        color: #60bb8f;
+        font-size: 16px;
+    }

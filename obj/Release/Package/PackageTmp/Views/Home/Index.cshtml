@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "首页";
+}
+@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/css/home.css")" />
+}
+<div class="index_body_bottom_cvr">
+    <!-- banner开始 -->
+    <div class="banner" id="banner">
+    </div>
+    <!-- banner 结束-->
+    <div class="container">
+        <div class="ibbc_middle">
+            <div class="index_menu_top row">
+                <div class="indMeTop_lft col-md-2 col-sm-12">赛　事</div>
+                <div class="indMeTop_rgt col-md-10 col-sm-12" id="autoMatch">
+                </div>
+            </div>
+            <div class="index_menu_ctnt row">
+                <div class="indMeCtnt_lft_cotr">
+                    <div class="indMeCtnt_lft">项　目</div>
+                </div>
+                <div class="indMeCtnt_rgt">
+                    <div class="index_projects">
+                        <div class="nochose">
+                            <ul class="nochoseProject">
+                                <li class="Selected">不限</li>
+                                <span id="showMoreProject" class="showMoreProject">更多></span>
+                                <span id="hiddenMoreProject" class="showMoreProject">折起></span>
+                            </ul>
+                            @*<span id="hiddenMoreProject" class="showMoreProject">折起>></span>*@
+                        </div>
+                        <div class="liList" id="zhangsan">
+                            <ul class="liProject" id="autoProject"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="index_menu_ctnt index_menu_ctnt_adr row">
+                <div class="indMeCtnt_lft indMeCtnt_lft_adr">地　点</div>
+                <div class="index_projects">
+                    <div class="nochose">
+                        <ul class="nochoseArea mt2">
+                            <li class="Selected">不限</li>
+                        </ul>
+                    </div>
+                    <ul class="liArea" id="autoArea"></ul>
+                </div>
+            </div>
+            <div class="index_menu_ctntTime row">
+                <div class="indMeCtnt_lft indMeCtnt_lft_tim">时　间</div>
+                <div class="index_projects">
+                    <div class="nochose">
+                        <ul class="nochoseMonth">
+                            <li class="Selected">不限</li>
+                        </ul>
+                    </div>
+                    <ul class="liMonth">
+                        <li id="month1">1月</li>
+                        <li id="month2">2月</li>
+                        <li id="month3">3月</li>
+                        <li id="month4">4月</li>
+                        <li id="month5">5月</li>
+                        <li id="month6">6月</li>
+                        <li id="month7">7月</li>
+                        <li id="month8">8月</li>
+                        <li id="month9">9月</li>
+                        <li id="month10">10月</li>
+                        <li id="month11">11月</li>
+                        <li id="month12">12月</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="index_menu_ctntChoose row">
+                <div class="indMeCtnt_chos">当前选择</div>
+                <div class="indMeCtnt_chosrgt">
+                    <!--默认全部，无点击事件 -->
+                    <div class="initChoseDiv" id="initMatch">
+                        全部赛事
+                    </div>
+                    <div class="indexComChos" id="choseMatch">
+                        全部赛事
+                    </div>
+                    <input type="text" id="matchValue" value="" />
+                    <div class="initChoseDiv" id="initProject">
+                        项目不限
+                    </div>
+                    <div class="indexComChos" id="choseProject">
+                        项目不限
+
+                    </div>
+                    <input type="text" id="projectValue" value="" />
+                    <div class="initChoseDiv" id="initArea">
+                        地点不限
+                    </div>
+                    <div class="indexComChos" id="choseArea">
+                        地点不限
+
+                    </div>
+                    <input type="text" id="areaValue" value="" />
+                    <div class="initChoseDiv" id="initMonth">
+                        时间不限
+                    </div>
+                    <div class="indexComChos" id="choseMonth">
+                        时间不限
+                    </div>
+                    <input type="text" id="monthValue" value="" />
+                </div>
+            </div>
+        </div>
+
+        <!--右侧 关注我们、 新浪微博 、微信 、app-->
+
+        <div id="competitionsList" class="row">
+            @*min-width*@
+        </div>
+
+        <div id="loadMore" class="row">
+            <div class="ibb_getmore">
+                <div class="ibb_getmorebtn">加载更多</div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/Shared/_RightPage.cshtml")
+
+@Html.Hidden("currentPage", "1")
+@section footerScripts
+{
+    <script type="text/javascript">
+        var shareText = "赛圈 体育赛事服务平台 官网：" + baseUrl;
+        baiduShare.setShareText(shareText);
+    </script>
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/home/homeCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}
+

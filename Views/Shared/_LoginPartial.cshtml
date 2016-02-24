@@ -1,0 +1,15 @@
+﻿@Html.AntiForgeryToken()
+<ul class="header-right display-none" id="alreadyLoggedIn">
+    <li>
+        <a href="@Url.Action("UserProfile", "UserCenter")" id="welcomeNickName">欢迎您！XXX</a>
+    </li>
+    <li><i class="icon-cart"></i><a href="@Url.Action("MyRegistration","SignUp")">报名列表</a></li>
+    <li><a id="logOff">注销</a></li>
+</ul>
+
+<ul class="header-right" id="notLoggedIn">
+    <li><a href="@Url.Action("Login", "Account")">登录</a></li>
+    <li><a href="@Url.Action("Register", "Account")">注册</a></li>
+</ul>
+
+

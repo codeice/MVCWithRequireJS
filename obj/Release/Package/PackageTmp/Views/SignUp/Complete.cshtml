@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "团体报名";
+}
+@section css{
+    <link href="~/Content/css/Complete.css" rel="stylesheet" />
+}
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Home")">活动列表</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Home")">活动详情</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Home")">赛事报名</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Home")">报名完成</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container">
+    <div class="row">
+        <!--左半部分-->
+        <div class="col-md-9 col-sm-12">
+            <!--上半部分-->
+            <div class="page-header-part">
+                <div class="workOnline-top">
+                    <div class="confirm_01">参赛信息确认</div>
+                    <div class="pay_02">支付报名费</div>
+                    <div class="fish_02">完成报名</div>
+                </div>
+                <div class="complete-online">
+                    <div class="complete-online-img-top"></div>
+                    <div class="complete-online-center">
+                        <div class="complete-online-div">
+                            <div class="complete-online-msg">
+                                <img src="~/Content/images/completeInfo.png" />（<label></label>）
+                            </div>
+                        </div>
+                    </div>
+                    <div class="complete-online-img-drop"></div>
+                </div>
+                <!--<hr style="width:672px; height:1px;border:none;border-top:2px solid #D7D7D7;" />-->
+            </div>
+
+
+        </div>
+        <!--右半部分-->
+        <div class="col-md-3 col-sm-12">
+            <!--分享模块-->
+            <div class="row share-part">
+                <div class="col-md-12">
+                    <div class="share-header-line share-header-left"></div>
+                    <div class="share-header-title">分享活动</div>
+                    <div class="share-header-line share-header-right"></div>
+                </div>
+                <div class="col-md-12 share-btns">
+                    <div class="share-icon share-weibo"><span>新浪微博</span></div>
+                    <div class="share-icon share-weixin"><span>微信</span></div>
+                    <div class="share-icon share-code"><span>二维码</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/signUp/completeCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}

@@ -1,0 +1,67 @@
+﻿.content-container,
+.content-actions {
+    background: #fff;
+}
+
+.content-container {
+    padding: 28px 25px 30px 25px;
+}
+
+.content-actions {
+    border-top: 1px solid #ececec;
+    padding-top: 24px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+
+    .content-actions .btn-green {
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        padding: 9px 30px;
+        color: #fff;
+        background-color: #50b483;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+        .content-actions .btn-green:hover {
+            background-color: #1F8D57;
+        }
+
+
+/*  列表样式*/
+/*.ui-list .list-item .ui-list {
+}*/
+.list-item .ui-list .list-item .item-handle {
+    background: #f3f3f3;
+}
+
+.list-item .ui-list .item-handle > .item-title,
+.list-item .ui-list .item-handle > .item-desc {
+    width: auto;
+}
+
+
+.list-item .ui-list .item-handle > .item-title {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+    .list-item .ui-list .item-handle > .item-title > strong {
+        color: #50b485;
+    }
+
+
+.list-item .ui-list .item-handle > .item-desc {
+    float: right;
+}
+
+    .list-item .ui-list .item-handle > .item-desc > strong {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+.custom-table {
+    margin-top: 15px;
+}

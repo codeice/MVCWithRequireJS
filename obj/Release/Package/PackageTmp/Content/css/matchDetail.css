@@ -1,0 +1,57 @@
+﻿.detailBox{ height: 420px;}
+.detailTitle{height: 80px; line-height: 80px;background-color: #61B88E;color: white;font-size: 25px;text-align: center;}
+.matchContent{ height: 310px;background-color: white;overflow: hidden;}
+.matchLImg{ height: 100%;padding-top:25px;}
+.matchRText{ height: 100%;padding-top: 25px;}
+.detailMatchImg{ width: 100%;height: 233px; border: 6px solid #D5D5D5;}
+/*.boxText >span{ display: inline-block;margin-left: 15px;margin-right: 20px;height: 35px;line-height: 35px;font-size: 15px;font-weight: bold;color: #838383;}*/
+.leftDis{display: inline-block;margin-left: 15px;margin-right: 20px;height: 35px;line-height: 35px;font-size: 15px;font-weight: bold;color: #838383;}
+.boxText{ line-height: 35px;font-size: 15px;color: #8D8D8D;}
+.boxBtn{outline: none;border-radius: 5px;-webkit-borderr-radius: 5px; width: 100%;margin-top: 20px;margin-right:20px;float: right;height: 42px;text-align: right;}
+.boxBtn a,.boxBtn button {outline: none;border-radius: 5px;-webkit-borderr-radius: 5px; display: inline-block;height: 40px;text-align: center;line-height: 40px;color: white;font-size: 15px;min-width: 110px;border: none;}
+.btnBook{border: none; margin-right: 20px; width: 132px;background-image: url(../images/ckbszc.png);}
+.btnBook:hover{background-position: 0 -40px;}
+.btnSignup-true,.btnSignup{border: none;height: 40px;color: white;font-size: 15px; width: 110px;background-image: url(../images/indexljbm.png);}
+.btnSignup-true:hover,.btnSignup:hover{background-position: 0 -40px;}
+.btnSignup-false{outline: none; border: none;height: 40px;color: white;font-size: 15px; width: 110px;background-color: #d2d2d2;border-radius: 5px;-webkit-borderr-radius: 5px;}
+.block-Img{position: inherit; float: left; display: inline-block;margin-right: 25px; height: 52px;width: 52px; background-image: url(../images/fist.png);}
+.blockName{position: inherit; display: inline-block;font-size: 20px; float: left;width: 80px; border-bottom: 3px solid #95CA7C;line-height: 49px;color: #6E6E6E;height: 52px;}
+.block-empty{display: inline-block;height: 52px; float: left;border-bottom: 3px solid #D8D8D8;width: 100%;position: absolute;}
+.height52{ height: 52px;}
+.margintop45{ margin-top: 45px;}
+.margintop35{margin-top: 35px;}
+.otherLi{ height: 280px;margin-top: 35px;}
+.otherLi-Img{ height: 165px;width: 100%; border: none;}
+.otherLiBottom{ height: 115px;background-color: white;}
+.otherLiTitle{padding-left: 10px;padding-right: 10px; height: 60px;line-height: 30px;color: #8C8C8C;font-size: 15px;}
+.otherLi-btn{margin-right: 10px;float: right;width: 110px;height: 40px;line-height: 40px;
+    text-align: center;background-image: url(../images/indexljbm.png);background-size: 110px 80px; background-repeat: no-repeat;background-position: 0 0;color: white;cursor: pointer;margin-top: 4px;}
+.otherLi-btn:hover{ background-position: 0 -40px;}
+#price{ color: #52B485;margin:0px;}
+.bgImg{ height: 20px;background-image: url(../images/bgTiao.png);background-repeat: repeat-x;}
+.headPortrait{padding: 0; margin-top: 10px;margin-right: 15px; border-radius: 25px;-webkit-borderr-radius: 25px;height: 50px;width: 50px;border: 3px solid #D6D6D6;/*background-image: url(../images/icon-person.png);background-size: 100%;*/}
+/*.userImg{ width: 100%;height: 100%;}*/
+/*-------查看比赛章程---------*/
+#alertBoxZC{position: absolute;display: none; width: 866px;height: 600px;top: 50%;left: 50%;margin-left: -433px;margin-top: -300px;background-color: white;}
+.top-btn{height: 58px;}
+.jszc{ margin-left: 15px;margin-right: 15px;display: inline-block;}
+.top-btn input{ height: 35px;width: 112px;line-height: 35px;border: #51B384 solid 1px;border-radius: 5px;-webkit-borderr-radius: 5px;color: #51B384;float: right;background-color: white;margin-right: 10px;padding: 0;margin-top: 10px;}
+.top-title{margin-bottom: 15px; height: 120px;width: 100%;background-color: #EFEFEF;}
+.matchTitle{ height: 60px;width: 100%;line-height: 60px;text-align: center;color: #898989;font-size: 17px;}
+.zcFormat{text-align: center; height: 32px;font-size: 32px;color: #50B384;font-weight: bold;}
+.zcContent{ width: 100%;}
+.block-name{margin: 10px 0 10px 38px; border-left: 5px solid #51B384;padding-left: 15px;height: 21px;line-height: 21px;font-size: 17px;color: #525252;font-weight: bold; }
+.block-content{ height: auto;margin-left: 90px;line-height: 30px;font-size: 15px;color: #7B7B7B;}
+.ZCbody{ height: 480px;overflow-x: hidden;}
+.middleDiv{ border-left: 1px solid #D2D2D2;border-right: 1px solid #D2D2D2;}
+.childProject{ background-color: #F4F4F4;font-size: 15px;color: #AEAEAE;padding: 10px;margin-top: 10px;margin-bottom: 10px;}
+.proLi{ height: 35px;line-height: 35px;color: #6E6E6E;font-size: 17px;}
+.icon01,.icon02,.icon03,.icon04,.icon05,.icon06,.icon07{ background-repeat: no-repeat;background-position: 0 center;padding-left: 25px;}
+.icon01{ background-image: url(../images/hdIcon01.png);}
+.icon02{ background-image: url(../images/hdIcon02.png);}
+.icon03{ background-image: url(../images/hdIcon03.png);}
+.icon04{ background-image: url(../images/hdIcon04.png);}
+.icon05{ background-image: url(../images/hdIcon05.png);}
+.icon06{ background-image: url(../images/hdIcon06.png);}
+.icon07{ background-image: url(../images/hdIcon07.png);}
+.md-footer,.md-header{ border: none;}

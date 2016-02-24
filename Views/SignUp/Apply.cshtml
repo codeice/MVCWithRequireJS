@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "赛事报名";
+}
+@section css{
+    <link href="~/Content/css/signUp.css" rel="stylesheet" />
+}
+
+<div id="myApp" ng-controller="signUpCtrl" ng-cloak>
+    <!--面包屑导航-->
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="@Url.Action("Index", "Home")">首页</a>
+            </li>
+            <li>
+                <a href="@Url.Action("MatchDetail", "Home")?CompetitionKey={{competitionKey}}">活动详情</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">赛事报名</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--内容页面-->
+    <div class="container page-container">
+        <div class="row">
+            <!--左半部分-->
+            <div class="col-md-9 col-sm-12">
+                <!--上半部分-->
+                <div class="page-header-part">
+                    <div class="page-title">
+                        报名表
+                    </div>
+                    <div class="item-header">
+                        <div class="item-tag">报名赛事</div>
+                        <div class="item-title" ng-bind="competition.Title"></div>
+                    </div>
+                    <div class="item-header">
+                        <div class="item-tag">报名项目</div>
+                        <div class="item-title">
+                            <select id="competeItem" class="custom-select " ng-model="currentProjectCode" ng-options="item.Code as item.Value for item in competition.Projects" ng-change="changeProject()"></select>
+                            <span class="text-desc">
+                                可报名数
+                                <strong class="text-number" ng-bind="project.RemainingNum"></strong>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--表单部分-->
+                <div class="page-body-part">
+                    <ul class="nav nav-pills custom-tabs">
+                        <li class="active">
+                            <a href="#team-wrapper" data-toggle="tab" aria-expanded="false">
+                                队伍信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#member-wrapper" data-toggle="tab" aria-expanded="true">
+                                队员
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--队伍信息-->
+                        <div id="team-wrapper" class="tab-pane active">
+                            @Html.Partial("TeamForm")
+                        </div>
+
+                        <!--运动员-->
+                        <div id="member-wrapper" class="tab-pane fade">
+                            @Html.Partial("MemberForm")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--右半部分-->
+            <div class="col-md-3 col-sm-12">
+                <!--分享模块-->
+                @Html.Partial("~/Views/Shared/_SharePart.cshtml")
+                <!--报名订单-->
+                <div class="row  list-part">
+                    <div class="col-md-12">
+                        <div class="list-header col-md-8 col-md-offset-2">
+                            <i class="icon-fixed"></i>
+                            报名列表(<span ng-bind="registrations.CombinationCount"></span>)
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="nestable-list">
+                            <ul class="ui-list">
+                                <li class="list-item" ng-repeat="project in registrations.Projects">
+                                    <div class="item-handle">
+                                        <span ng-bind="project.ProjectName"></span>
+                                    </div>
+                                    <ul class="ui-list">
+                                        <li class="list-item" ng-repeat="combination in project.Combinations">
+                                            <div class="item-handle">
+                                                <span ng-bind="combination.CombinationName"></span>
+                                                <div class="action-buttons" ng-click="deleteCombination(combination)">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="btn-actions">
+                        <div class="btn-yellow" ng-click="goToConfirmPage()">提交订单</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/signUp/signUpCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}

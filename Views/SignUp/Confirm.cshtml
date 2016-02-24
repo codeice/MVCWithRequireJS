@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "报名信息确认";
+}
+@section css{
+    <link href="~/Content/css/order.css" rel="stylesheet" />
+}
+
+<!--面包屑导航-->
+<div id="confirmApp" ng-controller="confirmCtrl">
+
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="@Url.Action("Index", "Home")">首页</a>
+            </li>
+            <li>
+                <a href="@Url.Action("MatchDetail", "Home")?CompetitionKey={{competitionKey}}">活动详情</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Apply", "SignUp")?CompetitionKey={{competitionKey}}">赛事报名</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">参赛信息确认</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container page-container">
+        <div class="row">
+            <!--左半部分-->
+            <div class="col-md-9 col-sm-12">
+                <!--上半部分-->
+                <div class="page-header-part">
+                    <div class="workOnline">
+                        <div class="confirm_01">参赛信息确认</div>
+                        <div class="pay_02">支付报名费</div>
+                        <div class="fish_02">完成报名</div>
+                    </div>
+                    <div ng-show="projects.length!=0">
+                        <div class="orderDetail">
+                            <ul>
+                                <li>
+                                    <div class="projectMain">
+                                        <label class="eventTitle" ng-bind="savedSignUpInfos.CompetitionName"></label>
+                                    </div>
+                                    <div class="projectList" ng-repeat="project in projects">
+                                        <label>项目：</label><b class="projectName">{{project.ProjectName}}</b>
+                                        <table class="table custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-md-1">编号</th>
+                                                    <th class="col-md-2">姓名</th>
+                                                    <th class="col-md-1">性别</th>
+                                                    <th class="col-md-4">身份证号</th>
+                                                    <th class="col-md-3">联系方式</th>
+                                                    <th class="col-md-1">删除</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="combinations in project.Combinations" ng-init="parentIndex=$index+1">
+                                                <tr ng-repeat="item in combinations.Members">
+                                                    <td ng-bind="parentIndex" rowspan="{{combinations.Members.length}}" ng-show="$index+1==1"></td>
+                                                    <td ng-bind="item.Name"></td>
+                                                    <td ng-bind="item.Gender|gender"></td>
+                                                    <td ng-bind="item.IdCardNo"></td>
+                                                    <td ng-bind="item.CellNumber"></td>
+                                                    <td rowspan="{{combinations.Members.length}}" ng-show="$index+1==1">
+                                                        <i class="icon-delete" ng-click="delCombinations(combinations)"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="operateDiv">
+                            <button class="btnGoPay" ng-click="submitOrder()">信息无误&nbsp;确认支付</button>
+                        </div>
+                    </div>
+
+                    <div class="empty-tip" ng-show="projects.length==0">
+                        <img class="img-responsive" src="@Url.Content("~/Content/images/empty-bg.png")" />
+                        <h3 class="tip-text">你还未有任何报名信息！</h3>
+                    </div>
+                </div>
+            </div>
+            <!--右半部分-->
+            <div class="col-md-3 col-sm-12">
+                <!--分享模块-->
+                @Html.Partial("~/Views/Shared/_SharePart.cshtml")
+            </div>
+        </div>
+    </div>
+
+</div>
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/signUp/confirmCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}

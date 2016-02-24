@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "报名列表";
+}
+
+@section css{
+    <link href="~/Content/css/nestable.css" rel="stylesheet" />
+    <link href="~/Content/css/registration.css" rel="stylesheet" />
+}
+
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">报名列表</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container" id="registrationApp" ng-controller="myRegistrationCtrl">
+    <div class="row">
+        <!--左半部分-->
+        <div class="col-md-9 col-sm-12">
+            <div ng-show=" competitions.length!=0">
+                <!--列表部分-->
+                <div class="content-container">
+                    <div class="nestable-list">
+                        <ul class="ui-list">
+                            <li class="list-item" ng-repeat="competition in competitions">
+                                <!--一级-->
+                                <div class="item-handle">
+                                    <i class="icon-collapse icon-plus"></i>
+                                    <label class="ui-checkbox item-radio">
+                                        <input type="checkbox" ng-model="competition.checked" ng-checked="competition.checked" ng-change="checkAllOrNot(competition)">
+                                        <span class=" icon-checkbox"></span>
+                                    </label>
+                                    <span class="item-title " ng-bind="competition.CompetitionName "></span>
+                                    <span class="item-desc">
+                                        <strong ng-bind="competition.TotalCost"></strong>元
+                                    </span>
+                                </div>
+                                <!--二级-->
+                                <ul class="ui-list">
+                                    <li class="list-item" ng-repeat="project in competition.Projects">
+                                        <div class="item-handle">
+                                            <label class="ui-checkbox item-radio padding-right-2">
+                                                <input type="checkbox" ng-model="project.checked" ng-checked="project.checked" ng-change="cascadeChangeParent(competition,project)">
+                                                <span class=" icon-checkbox"></span>
+                                            </label>
+                                            <span class="item-title">
+                                                <strong>项目：</strong>{{project.ProjectName }}
+                                            </span>
+                                            <span class="item-desc">
+                                                <strong ng-bind="project.Cost"></strong>元
+                                            </span>
+                                            <!--表格-->
+                                            <table class="table custom-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-md-1">编组</th>
+                                                        <th class="col-md-2">姓名</th>
+                                                        <th class="col-md-1">性别</th>
+                                                        <th class="col-md-3">电话</th>
+                                                        <th class="col-md-4">身份证号</th>
+                                                        <th class="col-md-1">删除</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-repeat="combination in project.Combinations" ng-init="parentIndex=$index+1">
+                                                    <tr ng-repeat="member in combination.Members">
+                                                        <td ng-bind="parentIndex" rowspan="{{combination.Members.length}}" ng-show="$index+1==1"></td>
+                                                        <td ng-bind="member.Name"></td>
+                                                        <td ng-bind="member.Gender|genderFormat"> </td>
+                                                        <td ng-bind="member.CellNumber"> </td>
+                                                        <td ng-bind="member.IdCardNo"></td>
+                                                        <td rowspan="{{combination.Members.length}}" ng-show="$index+1==1">
+                                                            <i class="icon-delete" ng-click="deleteCombination(competition,combination)"></i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--按钮部分-->
+                <div class="content-actions">
+                    <button type="button" class="btn-green" ng-click="submitAll()">前往支付</button>
+                </div>
+            </div>
+
+            <div class="empty-tip" ng-show="competitions.length==0">
+                <img class="img-responsive" src="@Url.Content("~/Content/images/empty-bg.png")" />
+                <h3 class="tip-text">你还未有任何报名信息！</h3>
+            </div>
+        </div>
+
+        <!--右半部分-->
+        <div class="col-md-3 col-sm-12">
+            <!--分享模块-->
+            @Html.Partial("~/Views/Shared/_SharePart.cshtml")
+        </div>
+    </div>
+</div>
+
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/signUp/myRegistrationCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}
+
+
+
+
+

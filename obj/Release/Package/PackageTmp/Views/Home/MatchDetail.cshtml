@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "赛事详情";
+}
+@section css{
+    <link href="@Url.Content(contentPath: "~/Content/css/matchDetail.css")" rel="stylesheet" />
+}
+
+<!--面包屑导航-->
+<div class="container" id="matchDetailApp" ng-controller="matchDetailCtrl">
+
+    <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="@Url.Action("Index", "Home")">首页</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">活动详情</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container page-container">
+        <div class="row">
+            <!--左半部分-->
+            <div class="col-md-9 col-sm-12">
+                <!--详情div-->
+                @*<div class="detailBox" id="detailBoxInfo">
+                    </div>*@
+                <div class="detailBox" id="detailBoxInfo">
+                    <div class="detailTitle" id="matchTitle" ng-bind="objData.Title"></div>
+                    <div class="matchContent col-md-12">
+                        <div class="matchLImg col-md-4 col-sm-12">
+                            <img class="detailMatchImg" ng-src="{{objData.IconUri}}">
+                        </div>
+                        <div class="matchRText col-md-8 col-sm-12">
+                            <div class="boxText margin-top-10"><span class="leftDis">比赛时间</span><span id="mStartTime" ng-bind="objData.StartTime | formatDate"></span>　至　<span id="mEndTime" ng-bind="objData.EndTime | formatDate"></span></div>
+                            <div class="boxText"><span class="leftDis">比赛地点</span><span id="mLocation" ng-bind="objData.Location | formatNull"></span></div>
+                            <div class="boxText"><span class="leftDis">报名方式</span><span>网上报名</span></div>
+                            <div class="boxText"><span class="leftDis">报名费用</span><span id="price" ng-bind="signUpFeeHtml"></span>元/人</div>
+                            <div class="boxText"><span class="leftDis">报名状态</span><span ng-bind="objData.SignUpStatus | signStatus"></span></div>
+                            <div class="boxBtn">
+                                <button type="button" class="btnBook" data-toggle="modal" data-target="#ruleModal">查看比赛章程</button>
+                                <button type="button" class="btnSignup-{{signUpStatus}}">立即报名</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgImg col-md-12"></div>
+                </div>
+            </div>
+            <!--右半部分-->
+            <div class="col-md-3 col-sm-12">
+                <!--分享模块-->
+                @Html.Partial("~/Views/Shared/_SharePart.cshtml")
+                <!--最近报名-->
+                <div class="row share-part">
+                    <div class="col-md-12">
+                        <div class="share-header">
+                            <span class="share-title">最近报名</span>
+                        </div>
+                    </div>
+                    <div id="signUpUsers" class="col-md-12 col-sm-12 share-btns">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--其他赛事-->
+        <div class="row margintop35">
+            <div class="col-md-12 col-sm-12 height52">
+                <div class="block-Img"></div>
+                <div class="blockName">其他赛事</div>
+                <div class="block-empty"></div>
+            </div>
+            <div id="otherMatch" class="col-md-12 col-sm-12">
+                <div class="col-md-3 col-sm-12 otherLi" ng-repeat="otherItem in otherProjects">
+                    <img ng-src="{{otherItem.IconUri}}" class="otherLi-Img" />
+                    <div class="otherLiBottom">
+                        <div class="otherLiTitle" ng-bind="otherItem.Title"></div>
+                        <div class="otherLi-btn" id="{{otherItem.CompetitionKey}}">比赛详情</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--比赛详情Modal弹出窗-->
+    <div class="modal fade" id="ruleModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header md-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body " id="formatBody">
+                    <div class="top-title ">
+                        <div class="matchTitle" id="mTitle">{{objData.Title}}</div>
+                        <div class="zcFormat">
+                            <img src="@Url.Content("~/Content/images/flyleft.png")" /><span class="jszc">竞赛章程</span><img src="@Url.Content("~/Content/images/flyright.png")" />
+                        </div>
+                    </div>
+                    <div class="zcContent">
+                        <div class="block-name">承办单位</div>
+                        <div class="block-content"><span ng-bind="objData.Organizer"></span></div>
+                        <div class="block-name">协办单位</div>
+                        <div class="block-content"><span ng-bind="objData.CoOrganizer"></span></div>
+                        <div class="block-name">竞赛时间、地点</div>
+                        <div class="block-content">
+                            时间：<span ng-bind="objData.StartTime | formatDate"></span>-<span ng-bind="objData.EndTime | formatDate"></span><br />
+                            地点：<span ng-bind="objData.Location"></span>
+                        </div>
+                        <div class="block-name">竞赛项目</div>
+                        <div class="block-content">
+                            <div ng-repeat="project in objData.Projects">
+                                <span class="proLi">({{$index+1}}){{project.ProjectName}}</span>
+                                <div class="col-md-12 childProject">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="icon01">可报名人数：<span ng-bind="project.MaxNum"></span></div>
+                                        <div class="icon02">项目类型：<span ng-bind="project.ProjectType|projectType"></span></div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 middleDiv">
+                                        <div class="icon03">可报名性别：<span ng-bind="project.Gender |gender"></span></div>
+                                        <div class="icon04">报名方式：<span ng-bind="project.SignUpType|signUpType"></span></div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="icon05">可报名年龄：<span ng-bind="project.MinAge"></span>岁-<span ng-bind="project.MaxAge"></span>岁</div>
+                                        <div class="icon06">费用：<span ng-bind="project.Amount==null?0:project.Amount"></span>元</div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12" ng-show="project.Remark!=null">
+                                        <div class="icon07">备注：<span ng-bind="project.Remark==null?'':project.Remark"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer md-footer">
+                    <button type="button" class="btnSignup-{{signUpStatus}}">立即报名</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</div>
+
+
+@section footerScripts{
+   
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/home/matchDetailCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}
+

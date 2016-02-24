@@ -1,0 +1,84 @@
+﻿
+body {
+    padding: 0;
+    margin: 0 auto;
+    /*    width: 1080px;
+    height: 1863px;*/
+    font-family: 微软雅黑;
+    /* 加载背景图 */
+    background-image: url('../images/download-bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*    background-attachment: fixed;*/
+    background-size: cover;
+    background-color: #56AB8C;
+}
+
+.page-wrapper {
+    z-index: 1;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+
+@media screen and (min-width : 1224px) {
+    .page-wrapper {
+        left: 24%;
+    }
+}
+
+.page-wrapper > #download-btn {
+    padding: 40px 280px;
+    line-height: normal;
+    border-radius: 30px;
+    border: 8px solid #fff;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 59px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.mask-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: #000000;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+}
+
+    .mask-wrapper > .mask-content {
+        color: #fff;
+        text-align: right;
+        padding: 10px 80px;
+        position: relative;
+        float: right;
+    }
+
+        .mask-wrapper > .mask-content > .icon-arrow-up {
+            display: block;
+            float: right;
+            width: 120px;
+            height: 250px;
+            border-style: none;
+            border-width: 0;
+            background: url('../images/arrow-up.png') no-repeat;
+        }
+
+        .mask-wrapper > .mask-content > div {
+            clear: both;
+            padding-right: 50px;
+        }
+
+        .mask-wrapper > .mask-content p {
+            font-size: 50px;
+        }
+
+        .mask-wrapper > .mask-content > .text-here {
+            padding-right: 25px;
+        }

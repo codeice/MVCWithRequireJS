@@ -1,0 +1,810 @@
+﻿
+/*********************个人中心左侧菜单***************************/
+.menu-container {
+    position: relative;
+}
+
+.menu-left {
+    background: #4a4a4a;
+    min-height: 540px;
+}
+
+.menu-header {
+    width: 100%;
+    height: 91px;
+}
+
+.tabs-nav-left {
+    padding: 20px 25px;
+}
+
+.custom-nav-left > li {
+    margin-bottom: 10px;
+}
+
+    .custom-nav-left > li > a {
+        border-radius: 0;
+        color: #949494;
+        font-size: 16px;
+        padding: 12px 15px !important;
+        text-align: center;
+        background-color: transparent;
+        border: 1px solid #585858;
+        border-radius: 0 !important;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+    }
+
+        .custom-nav-left > li.active > a,
+        .custom-nav-left > li > a:hover {
+            background-color: #469b71 !important;
+            color: #fff !important;
+        }
+
+.book-tag {
+    position: absolute;
+    right: -25px;
+    top: 133px;
+    z-index: 1000;
+}
+
+    .book-tag li {
+        width: 50px;
+        height: 27px;
+        background: url('../images/book-tag.png') no-repeat;
+        margin-bottom: 105px;
+    }
+
+/***************************右侧***********************/
+.conent-container {
+    padding: 0 34px 28px 34px !important;
+    min-height: 540px !important;
+    background-color: #fff;
+}
+/***************************通用小按钮***********************/
+.min {
+    padding: 5px 30px;
+    margin-left: 30px;
+}
+/********************分页***************************/
+.pager-actions {
+    /*text-align: center;*/
+    text-align: right;
+    position: relative;
+    top: 20px;
+}
+
+    .pager-actions > .pager-desc {
+        float: left;
+        color: #7B7B7B;
+    }
+
+    .pager-actions .pager-bar > li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+        .pager-actions .pager-bar > li > a {
+            display: inline-block;
+            width: 45px;
+            height: 46px;
+            cursor: pointer;
+            background: url('../images/icon-pager.png') no-repeat;
+        }
+
+            .pager-actions .pager-bar > li > a.prev {
+                background-position: 0 -46px;
+            }
+
+            .pager-actions .pager-bar > li > a.next {
+                background-position: -45px -46px;
+            }
+
+        .pager-actions .pager-bar > li:hover > a.prev {
+            background-position: 0 0;
+        }
+
+        .pager-actions .pager-bar > li:hover > a.next {
+            background-position: -45px 0;
+        }
+
+/**********************************我的订单*********************************/
+
+/*****custom nav pills******/
+.custom-nav-pills > li {
+    margin-right: 10px;
+}
+
+    .custom-nav-pills > li > a {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 12px 26px !important;
+        background-color: #b5b5b5;
+        color: #fff;
+        border-radius: 0 0 12px 12px !important;
+    }
+
+        .custom-nav-pills > li > a:hover,
+        .custom-nav-pills > li.active > a,
+        .custom-nav-pills > li.active > a:focus,
+        .custom-nav-pills > li.active > a:hover {
+            color: #fff;
+            background-color: #6dc298 !important;
+        }
+
+.header-action {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.check-all-radio {
+    padding-right: 3px;
+    position: relative;
+    top: -3px;
+}
+
+.check-all-text {
+    font-size: 18px;
+    color: #776b7a;
+}
+
+.item-order {
+    padding: 0 0 0 17px !important;
+    height: 57px;
+    line-height: 57px;
+}
+
+    .item-order .item-action {
+        float: right;
+        font-size: 16px;
+        color: #959595;
+    }
+
+        .item-order .item-action li {
+            float: left;
+        }
+
+.item-action .item-desc {
+    font-size: 20px;
+    color: #6ec199;
+    font-weight: normal;
+    padding-right: 19px;
+    border-right: 1px solid #d0cfcd;
+}
+
+.item-action .item-btn {
+    padding: 0 14px 0 12px;
+}
+
+    .item-action .item-btn:hover {
+        color: #fff;
+        background: #6ec199;
+    }
+
+.order-actions {
+    text-align: right;
+    position: relative;
+    top: 20px;
+}
+
+    .order-actions > span {
+        font-size: 18px;
+        color: #6b6b6b;
+        margin-right: 35px;
+    }
+
+        .order-actions > span > strong {
+            font-weight: normal;
+            color: #6dc298;
+            padding-left: 12px;
+        }
+
+.icon-diamond {
+    display: inline-block;
+    width: 14px;
+    height: 13px;
+    background: url('../images/icon-diamond.png') no-repeat;
+    margin-right: 4px;
+}
+
+.btn-yellow,
+.btn-green {
+    border-radius: 35px;
+    border: none;
+    outline: none;
+    padding: 9px 40px;
+    color: #fff;
+    background-color: #e19650;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+    .btn-yellow:hover {
+        background-color: #CE7828;
+    }
+
+.btn-green {
+    background-color: #5bb187;
+}
+
+    .btn-green:hover {
+        background-color: #21955C;
+    }
+
+
+
+/********************************我的赛事*****************************/
+.myEvent {
+    width: 355px;
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    line-height: 30px;
+    padding: 15px;
+    float: left;
+    margin: 0 15px 0 15px;
+    margin-bottom: 15px;
+}
+
+    .myEvent b {
+        font-weight: 500;
+        font-size: 16px;
+        color: #64AE89;
+    }
+
+    .myEvent label {
+        font-size: 16px;
+        color: #979797;
+        font-weight: 500;
+        margin: 0px 0px 0px 10px;
+    }
+
+    .myEvent .eventStatus {
+        height: 24px;
+        width: 65px;
+        border-radius: 12px;
+        color: white;
+        float: right;
+        text-align: center;
+        line-height: 24px;
+        cursor: pointer;
+    }
+
+    .myEvent .eventClose {
+        background-color: #979797;
+    }
+
+    .myEvent .eventOpen {
+        background-color: #64AE89;
+    }
+
+.goSign {
+    width: 100%;
+    /*position: absolute;*/
+}
+
+    .goSign div {
+        width: 160px;
+        height: 43px;
+        border-radius: 27px;
+        background-image: url("../images/clickChange.png");
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+        line-height: 43px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 320px;
+        margin-left: 330px;
+    }
+
+        .goSign div:hover {
+            background-position: 0px -43px;
+        }
+
+.TotalSeniority {
+    margin-left: 100px;
+}
+
+.event-actions {
+    text-align: center;
+    /* position: relative;
+        top: 55px;*/
+}
+
+.rowTop {
+    margin-top: 30px;
+}
+
+/********************************个人资料*****************************/
+.boredtop {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.boredtop-img {
+    line-height: 170px;
+    background-image: url(../images/myHead_Round.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+}
+
+    .boredtop-img img {
+        vertical-align: middle;
+        border: 0;
+    }
+
+
+
+.boredtop-info {
+    background: #f7f5f3;
+    width: 600px;
+    height: auto;
+    padding-left: 40px;
+}
+
+.control-group {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+    .control-group > select {
+        width: 215px;
+    }
+
+.form-label {
+    float: left;
+    width: 120px;
+    padding-right: 0.8em;
+    padding-top: 5px;
+    text-align: right;
+    font-size: 16px;
+    color: #7e7e7e;
+    font-weight: 500;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="file"],
+.form-row select,
+.form-row-noborder input[type="text"],
+.form-row-noborder input[type="file"],
+.form-row-noborder select {
+    width: 215px;
+    border: none;
+    outline: none;
+    line-height: 20px;
+    padding: 6px 20px;
+    background: #ebebeb;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    font-size: 16px;
+    color: #609e80;
+}
+
+
+
+.myInfoHead {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.upMyProfile {
+    width: 170px;
+    margin-left: 320px;
+}
+
+.upload {
+    padding: 5px;
+    width:215px;
+    text-align:center;
+}
+
+
+#UserProfileForm {
+    display: none;
+    padding-left: 200px;
+    padding-top: 20px;
+}
+
+.btn-upProfile {
+    margin-left: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.profile-title{
+    font-size:16px;
+    color:#6EC098;
+    padding: 30px 0px 7px 0px;
+    float:left;
+}
+.profile-update{
+    font-size:15px;
+    color:#6EC098;
+    float:right;
+    font-weight:500;
+    padding: 30px 28px 7px 0px;
+}
+.hr-green{
+    width:12%;border:none;border-top:3px solid #56A27C;float:left;margin:0;
+}
+.hr-gray{
+    width:88%;border:none;border-top:3px solid #EFEFEF;float:left;margin:0;
+}
+.myHeadDiv{
+    text-align:center;
+}
+.myHead {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    -webkit-border-radius: 50%;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    background-image: url(../images/myHead.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 130px;
+    border: 5px solid #E1E0E1;
+    margin-top:18px;
+}
+
+    .myHead:hover {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+.boredtop-img-div {
+    height: 50px;
+    text-align: center;
+    color: #717171;
+    font-size: 16px;
+    padding-top: 18px;
+}
+.profileInfo{
+    padding-top: 18px;
+}
+.boredtop-info-title {
+    font-size: 16px;
+    color: #64AE89;
+    font-weight: 500;
+    float: inherit;
+    line-height: 35px;
+}
+
+.boredtop-info-text {
+    font-size: 16px;
+    color: #9a9a9a;
+    padding: 0;
+    width: initial;
+    float: inherit;
+    margin-left: 20px;
+    line-height: 35px;
+    font-weight: 400;
+}
+.evenRow{
+    background-color: #F1F1F1;
+}
+.securityCenter {
+    padding: 10px 43px 10px 10px;
+}
+.Pigeon{
+    font-size: 17px;
+    color: #64AE89;
+    font-weight: 500;
+    float: inherit;
+    line-height: 35px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.securityCenter-update{
+    font-size:15px;
+    color:#6EC098;
+    float:right;
+    font-weight:500;
+    line-height: 35px;
+}
+.hr-dashed{
+    border:2px dotted #F1F1F1;
+    border-bottom:0;
+    border-right:0;
+    border-left:0;
+    width:100%;
+    margin: 0;
+}
+.sex-boy,.sex-girl {
+    font-size: 16px;
+    color: #66B4EB;
+    width: initial;
+    float: inherit;
+    line-height: 35px;
+    font-weight: 400;
+    padding-left: 5px;
+}
+.sex-girl {
+    color:#66B4EB;
+}
+.sex-girl {
+    color: #EB5392;
+}
+
+
+/********************************我的成绩*****************************/
+.myScoreImg {
+    background-image: url(../images/myScore.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 145px;
+}
+
+.myScoreDiv {
+    margin-top: 35px;
+    line-height: 30px;
+}
+
+.champion {
+    background-image: url(../images/champion.png);
+}
+
+.awards {
+    background-image: url(../images/awards.png);
+}
+
+.finals {
+    background-image: url(../images/finals.png);
+}
+
+.champion, .awards, .finals {
+    background-repeat: no-repeat;
+    background-position-y: 9px;
+    padding: 2px;
+}
+
+    .champion label,
+    .awards label,
+    .finals label {
+        font-size: 16px;
+        color: #979797;
+        padding-left: 15px;
+        font-weight: 500;
+    }
+
+    .champion b,
+    .awards b,
+    .finals b {
+        font-size: 16px;
+        color: #64AE89;
+        padding-left: 9px;
+    }
+
+.myAwardsInfo {
+    padding-top: 25px;
+}
+
+.event-top {
+    min-height: 410px;
+}
+
+#myScoreInfo {
+    padding: 0px;
+    min-height: 440px;
+}
+/********************************我的联系人*****************************/
+.contact-header {
+    margin-top: 11px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.btn-add,
+.btn-add:focus,
+.btn-add:active,
+.btn-add:active:focus {
+    outline: none;
+    padding: 7px 35px;
+    color: #6EC098;
+    border: 1px solid #6EC098;
+    border-radius: 7px;
+    background-color: #FFFFFF;
+}
+
+    .btn-add:hover {
+        background: #6EC098;
+        color: #fff;
+    }
+
+.BackDiv {
+    padding-top: 50px;
+}
+
+.contact-header-right {
+    float: right;
+}
+
+    .contact-header-right > ul > li {
+        float: left;
+        margin-left: 12px;
+        cursor: pointer;
+    }
+
+        .contact-header-right > ul > li > a {
+            line-height: 36px;
+            color: #6EC098;
+            border-right: 1px solid #c4c4c4;
+            padding-right: 20px;
+        }
+
+        .contact-header-right > ul > li:last-child > a {
+            border-right: none;
+            padding-right: 0;
+        }
+
+/*table-no-border*/
+.table-no-border > thead {
+    background: #585858;
+}
+
+.table-no-border > tbody > tr:nth-child(2n+1) {
+    background-color: #fff;
+}
+
+.table-no-border > tbody > tr:nth-child(2n) {
+    background-color: #f4f4f4;
+}
+
+.table-no-border > tbody > tr:hover {
+    background: #6EC098;
+    cursor: pointer;
+}
+
+    .table-no-border > tbody > tr:hover > td {
+        color: #fff;
+    }
+
+.table-no-border > thead > tr > th {
+    border-bottom: none;
+    color: #fff;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+    .table-no-border > thead > tr > th:first-child,
+    .table-no-border > tbody > tr > td:first-child {
+        text-align: left;
+        padding-left: 38px;
+    }
+
+.table-no-border > tbody > tr > td {
+    color: #7B7B7B;
+}
+
+.table-no-border .icon-edit:hover {
+    /*background:url();*/
+}
+
+.fromTop {
+    padding-top: 100px;
+}
+
+.contatcStutas {
+    display: none;
+}
+
+.peration {
+    margin-left: 8px;
+}
+
+#contactFrom {
+    display: none;
+}
+
+.input-readonly {
+    color: #9a9a9a !important;
+}
+
+.require-tip {
+    color: #dc5034;
+}
+
+.contactTable {
+    margin-bottom: 15px;
+}
+
+
+/***************修改手机号码***************/
+#updateCellNumber {
+    display: none;
+}
+
+.stepflex {
+    width: 480px;
+    text-align: center;
+    margin: 30px auto;
+    line-height: 30px;
+}
+
+    .stepflex dl {
+        float: left;
+        position: relative;
+        width: 160px;
+        top: -5px;
+        border-top: 5px solid #ccc;
+    }
+
+    .stepflex .doing {
+        border-top-color: #7abd54;
+    }
+
+    .stepflex .done {
+        border-top-color: #7abd54;
+    }
+
+.s-num {
+    position: relative;
+    margin: -15px auto 0;
+    color: #fff;
+    font-weight: 700;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/stepSQ.png);
+    line-height: 23px;
+}
+
+.doing .s-num {
+    background-position: -23px 0;
+}
+
+.doing .s-text {
+    color: #7abd54;
+}
+
+.s-text {
+    color: #ccc;
+}
+
+.last .s-num {
+    background-position: -68px 0;
+}
+
+.doing .done {
+    background-position: -91px 0px;
+}
+
+#step1 {
+    height: 330px;
+}
+
+#step2, #step3 {
+    display: none;
+}
+
+.step1Content .form-label, .step2Content .form-label {
+    padding-top: 0px;
+}
+
+.bb-green {
+    border-bottom: 2px solid #6EC098;
+    line-height: 40px;
+    color: #7e7e7e;
+    margin-bottom: 25px;
+}
+
+.randomCodeImg {
+    border: 0;
+    margin-left: 5px;
+    width: 85px;
+    height: 28px;
+}
+
+.h28 {
+    height: 28px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.user-center {
+    text-align: center !important;
+}

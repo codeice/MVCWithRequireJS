@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "关注我们模块";
+}
+<div id="fixedDiv" class="fixedDiv bdsharebuttonbox">
+    <div class="fixedDiv-content">
+        <div class="fixedDiv-followUs">关注我们</div>
+        <div class="fixedDiv-weibo" >
+            <a href="javascript:void(0)" class="bds-tsina" data-cmd="tsina" title="分享到新浪微博">
+            </a></div>
+        <div class="fixedDiv-weixin" >
+            <a href="javascript:void(0)" class="bds-weixin" data-cmd="weixin" title="分享到微信">
+            </a></div>
+        <div class="fixedDiv-qrCode">
+            <img src="@Url.Content("~/Content/images/code.png")" /></div>
+    </div>
+    <div class="fixedDiv-close">
+        <div class="line20"></div>
+        <div class="img-close"></div>
+    </div>
+</div>
+
+<div id="bigAppCode">
+    <img src="@Url.Content("~/Content/images/app-QRcode.png")" />
+    <span>扫码下载App</span>
+</div>
+<script type="text/javascript" src="@Url.Content("~/js/common/bdShare.js")"></script>
+<script type="text/javascript">
+    $(".img-close").on('click', function () {
+        $("#fixedDiv").css("display", "none");
+    });
+    $(".fixedDiv-qrCode").hover(function() {
+        $("#bigAppCode").css("display","block");
+    },function() {
+        $("#bigAppCode").css("display", "none");
+    });
+
+</script>

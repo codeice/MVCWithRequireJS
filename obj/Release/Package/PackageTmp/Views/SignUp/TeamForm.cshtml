@@ -1,0 +1,271 @@
+﻿ <!--队伍信息-->
+<div class="tool-bar">
+    <div class="col-md-12 header-bar">
+        <i class="icon-warning"></i>
+        <h4 class="text-warning">如果没有队伍信息， 可直接切换至 [ 队员 ]选项卡填写</h4>
+    </div>
+    <div class="col-md-12 tag-wrapper">
+        <div class="tag-category">
+            历史队伍
+        </div>
+        <div class="tag-items">
+            <div class="tag-item no-padding" title="{{team.Name}}" ng-repeat="team in myTeams" ng-bind="team.Name" ng-click="selectTeam(team)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--表单部分-->
+<form role="form" name="addTeamForm" id="addTeamForm" novalidate="">
+    <div class="form-wrapper">
+        <!--队名-->
+        <div class="row form-row-noborder">
+            <div class="col-md-12  col-md-12-ext">
+                <div class="control-group" ng-class="{'has-error':addTeamForm.Name.$dirty&& (addTeamForm.LeaderName.$error.required||isTeamNameExist)}">
+                    <label class="form-label team-name">
+                        <i class="icon-flag"></i>
+                        <span class="require-tip">*</span>队伍名称
+                    </label>
+                    <input class="input-87" type="text" name="Name" ng-model="team.Name" required ng-maxlength="50" ng-blur="checkTeamNameIsExsit()" />
+                </div>
+            </div>
+        </div>
+
+        <!--领队信息-->
+        <div class="row form-row" ng-show="teamForm.RequiresLeader">
+            <div class="form-row-tag">领队信息</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-leader"></div>
+            </div>
+            <div class="col-sm-10 col-md-10  col-md-10-ext">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.LeaderForm.Name">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.LeaderName.$dirty&& addTeamForm.LeaderName.$error.required}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>姓名
+                            </label>
+                            <input type="text" name="LeaderName" ng-model="team.Leader.Name" ng-maxlength="10" valid-required="teamForm.LeaderForm.Name" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.LeaderForm.Mobile">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.LeaderMobile.$dirty&& addTeamForm.LeaderMobile.$error.validMobile}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span> 手机号
+                            </label>
+                            <input type="text" name="LeaderMobile" ng-model="team.Leader.Mobile" valid-required="teamForm.LeaderForm.Mobile" valid-mobile />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.LeaderForm.IdCardNo">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.LeaderIdCardNo.$dirty&& addTeamForm.LeaderIdCardNo.$error.validIdCardNo}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>身份证号
+                            </label>
+                            <input type="text" name="LeaderIdCardNo" ng-model="team.Leader.IdCardNo" valid-required="teamForm.LeaderForm.IdCardNo" valid-id-card-no />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.LeaderForm.DressSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>服装尺寸
+                            </label>
+                            <select ng-model="team.Leader.DressSize" ng-options="item.Code as item.Value for item in dressSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.LeaderForm.ShoesSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>鞋码
+                            </label>
+                            <select ng-model="team.Leader.ShoesSize" ng-options="item.Code as item.Value for item in shoesSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--教练信息-->
+        <div class="row form-row" ng-show="teamForm.RequiresCoach">
+            <div class="form-row-tag">教练信息</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-coach"></div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-md-10-ext">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.CoachForm.Name">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.CoachName.$dirty&& addTeamForm.CoachName.$error.required}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>姓名
+                            </label>
+                            <input type="text" name="CoachName" ng-model="team.Coach.Name" ng-maxlength="10" valid-required="teamForm.CoachForm.Name" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.CoachForm.Mobile">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.CoachMobile.$dirty&& addTeamForm.CoachMobile.$error.validMobile}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span> 手机号
+                            </label>
+                            <input type="text" name="CoachMobile" ng-model="team.Coach.Mobile" valid-required="teamForm.CoachForm.Mobile" valid-mobile />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.CoachForm.IdCardNo">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.CoachIdCardNo.$dirty&& addTeamForm.CoachIdCardNo.$error.validIdCardNo}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>身份证号
+                            </label>
+                            <input type="text" name="CoachIdCardNo" ng-model="team.Coach.IdCardNo" valid-required="teamForm.CoachForm.IdCardNo" valid-id-card-no />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.CoachForm.DressSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>服装尺寸
+                            </label>
+                            <select ng-model="team.Coach.DressSize" ng-options="item.Code as item.Value for item in dressSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.CoachForm.ShoesSize">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>鞋码
+                            </label>
+                            <select ng-model="team.Coach.ShoesSize" ng-options="item.Code as item.Value for item in shoesSizeList">
+                                <option value="">----请选择----</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--联系人-->
+        <div class="row form-row" ng-show="teamForm.RequiresContact">
+            <div class="form-row-tag">联系人</div>
+            <div class="col-sm-2 col-md-2 col-md-2-ext">
+                <div class="icon icon-contact"></div>
+            </div>
+            <div class="col-sm-10 col-md-10 col-md-10-ext">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.ContactForm.Name">
+                        <div class="control-group">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>姓名
+                            </label>
+                            <input type="text" name="ContactName" ng-model="team.Contact.Name" ng-maxlength="10" valid-required="teamForm.ContactForm.Name" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.ContactForm.Mobile">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.ContactMobile.$dirty&& addTeamForm.ContactMobile.$error.validMobile}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span> 手机号
+                            </label>
+                            <input type="text" name="ContactMobile" ng-model="team.Contact.Mobile" valid-required="teamForm.ContactForm.Mobile" valid-mobile />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-ext" ng-show="teamForm.ContactForm.IdCardNo">
+                        <div class="control-group" ng-class="{'has-error':addTeamForm.ContactIdCardNo.$dirty&& addTeamForm.ContactIdCardNo.$error.validIdCardNo}">
+                            <label class="form-label">
+                                <span class="require-tip">*</span>身份证号
+                            </label>
+                            <input type="text" name="ContactIdCardNo" ng-model="team.Contact.IdCardNo" valid-required="teamForm.ContactForm.IdCardNo" valid-id-card-no />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--错误提示信息-->
+        <div class="row">
+            <div class="col-md-12">
+                <!--队名验证-->
+                <span class="error-tip" ng-show="addTeamForm.Name.$dirty||teamFormIsSubmitted">
+                    <span ng-show="isTeamNameExist && team.Name!=null">队伍名称不能重复！</span>
+                    <span ng-show="addTeamForm.Name.$error.required">队伍名称不能为空！</span>
+                    <span ng-show="addTeamForm.Name.$error.maxlength">最多只能填50个字！</span>
+                </span>
+                <!--领队错误信息提示-->
+                <span class="error-tip" ng-show="addTeamForm.LeaderName.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.LeaderName.$error.validRequired">领队姓名不能为空！</span>
+                    <span ng-show="addTeamForm.LeaderName.$error.maxlength">领队姓名最大长度为10！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.LeaderIdCardNo.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.LeaderIdCardNo.$error.validRequired">领队身份证号不能为空！</span>
+                    <span ng-show="addTeamForm.LeaderIdCardNo.$error.validIdCardNo">领队身份证号无效！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.LeaderMobile.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.LeaderMobile.$error.validRequired">领队手机号不能为空！</span>
+                    <span ng-show="addTeamForm.LeaderMobile.$error.validMobile">领队手机号无效！</span>
+                </span>
+                <span class="error-tip" ng-show="teamForm.LeaderForm.DressSize&& teamFormIsSubmitted">
+                    <span ng-show="  team.Leader.DressSize==null||  team.Leader.DressSize==undefined">请填写领队服装尺寸！</span>
+                </span>
+                <span class="error-tip" ng-show="teamForm.LeaderForm.ShoesSize&& teamFormIsSubmitted">
+                    <span ng-show="  team.Leader.ShoesSize==null||  team.Leader.ShoesSize==undefined">请填写领队鞋码！</span>
+                </span>
+
+                <!--教练错误信息提示-->
+                <span class="error-tip" ng-show="addTeamForm.CoachName.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.CoachName.$error.validRequired">教练姓名不能为空！</span>
+                    <span ng-show="addTeamForm.CoachName.$error.maxlength">教练姓名最大长度为10！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.CoachIdCardNo.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.CoachIdCardNo.$error.validRequired">教练身份证号不能为空！</span>
+                    <span ng-show="addTeamForm.CoachIdCardNo.$error.validIdCardNo">教练身份证号无效！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.CoachMobile.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.CoachMobile.$error.validRequired">教练手机号不能为空！</span>
+                    <span ng-show="addTeamForm.CoachMobile.$error.validMobile">教练手机号无效！</span>
+                </span>
+                <span class="error-tip" ng-show="teamForm.CoachForm.DressSize&& teamFormIsSubmitted">
+                    <span ng-show="  team.Coach.DressSize==null||  team.Coach.DressSize==undefined">请填写教练服装尺寸！</span>
+                </span>
+                <span class="error-tip" ng-show="teamForm.CoachForm.ShoesSize&& teamFormIsSubmitted">
+                    <span ng-show="  team.Coach.ShoesSize==null||  team.Coach.ShoesSize==undefined">请填写教练领队鞋码！</span>
+                </span>
+
+                <!--联系人错误信息提示-->
+                <span class="error-tip" ng-show="addTeamForm.ContactName.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.ContactName.$error.validRequired">联系人姓名不能为空！</span>
+                    <span ng-show="addTeamForm.ContactName.$error.maxlength">联系人姓名最大长度为10！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.ContactMobile.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.ContactMobile.$error.validRequired">联系人手机号不能为空！</span>
+                    <span ng-show="addTeamForm.ContactMobile.$error.validMobile">教练手机号无效！</span>
+                </span>
+                <span class="error-tip" ng-show="addTeamForm.ContactIdCardNo.$dirty||teamFormIsSubmitted">
+                    <span ng-show="addTeamForm.ContactIdCardNo.$error.validRequired">联系人身份证号不能为空！</span>
+                    <span ng-show="addTeamForm.ContactIdCardNo.$error.validIdCardNo">联系人身份证号无效！</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions team-form-actions center">
+        <div class="line-with-btn">
+            <div class="line-content">
+                <i class="icon-arrow-circle"></i>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn-save btn-reset" ng-click="resetTeamForm()">清空</button>
+            <button type="button" class="btn-save" ng-click="saveTeam()">保存</button>
+        </div>
+    </div>
+
+</form>

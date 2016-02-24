@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "个人中心";
+}
+@section css{
+    <link href="~/Content/css/nestable.css" rel="stylesheet" />
+    <link href="~/Content/css/userCenter.css" rel="stylesheet" />
+}
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">个人中心</a>
+        </li>
+    </ul>
+</div>
+
+<!--内容页面-->
+<div class="container page-container">
+    <div class="row">
+        <!--个人中心导航部分-->
+        <div class="col-md-3 col-sm-3 col-xs-3 menu-container">
+            <div class="menu-left">
+                <div class="menu-header">
+                    <img class="img-responsive" src="@Url.Content("~/Content/images/userCenter-bg.png")" />
+                </div>
+                <div class="tabs-nav-left">
+                    <ul class="nav nav-pills nav-stacked custom-nav-left">
+                        <li class="active">
+                            <a href="#userProfile" data-toggle="tab">个人资料</a>
+                        </li>
+                        <li>
+                            <a href="#myOrder" data-toggle="tab">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="#myEvents" data-toggle="tab">我的赛事</a>
+                        </li>
+                        <li>
+                            <a href="#myScore" data-toggle="tab">我的成绩</a>
+                        </li>
+                        <li>
+                            <a href="#myContacts" data-toggle="tab">我的联系人</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="book-tag">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!--右半部分-->
+        <div class="col-md-9 col-sm-9 col-xs-9 conent-container">
+            <div class="tab-content">
+                <div class="tab-pane active" id="userProfile">
+                    @{ Html.RenderAction("UserProfile", "UserCenter"); }
+                </div>
+                <div class="tab-pane fade" id="myOrder">
+                    @{ Html.RenderAction("MyOrder", "UserCenter"); }
+                </div>
+                <div class="tab-pane fade " id="myEvents">
+                    @{ Html.RenderAction("MyEvents", "UserCenter"); }
+                </div>
+                <div class="tab-pane fade" id="myScore">
+                    @{ Html.RenderAction("MyScore", "UserCenter"); }
+                </div>
+                <div class="tab-pane fade" id="myContacts">
+                    @{ Html.RenderAction("myContacts", "UserCenter"); }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section footerScripts{
+    @*    <script type="text/javascript">
+            $(function () {
+                $(".box-scroll").each(function () {
+                    $(this).niceScroll({
+                        cursorborder: "#fff",
+                        cursorwidth: 8,
+                        cursorborderradius: 5,
+                        /*   cursorcolor: "#7ec098",*/
+                        cursorcolor: "#dedede",
+                        boxzoom: false
+                    });
+                });
+            });
+        </script>*@
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/userCenter/userCenter.js")" src="@Url.Content("~/libs/require.js")">
+
+    </script>
+}

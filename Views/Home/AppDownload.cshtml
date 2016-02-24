@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "手机App下载";
+    Layout = null;
+}
+
+
+<link href="~/Content/css/appDownload.css" rel="stylesheet" />
+
+<section class="page-wrapper">
+    <button id="download-btn" class="btn btn-primary">立即下载</button>
+</section>
+
+<section class="mask-wrapper">
+    <div class="mask-content">
+        <i class="icon-arrow-up"></i>
+        <div>
+            <p class="text-here">点击这里</p>
+            <p>在浏览器中打开</p>
+        </div>
+    </div>
+</section>
+
+<script src="~/libs/jquery/jquery-1.10.2.min.js"></script>
+<!--二维码扫描下载对应的app-->
+<script type="text/javascript">
+    var iosAppUrl = "https://itunes.apple.com/cn/app/sai-quan-zhuan-ye-sai-shi/id1081429548?mt=8";
+    var androidAppUrl = "http://fb.saiquaner.com/CE.Api/browser/AppSotrage/test.apk";
+
+    var teminal = {
+        platform: (function () {
+            var userAgent = navigator.userAgent.toLowerCase();
+            $("#platform").val("useragent=", userAgent);
+            return {
+                isAndroid: userAgent.indexOf('android') > -1,
+                isIphone: userAgent.indexOf('iphone') > -1,
+                isWeChat: userAgent.indexOf('micromessenger') > -1
+            };
+        })()
+    };
+
+    //---如果直接在浏览器打开
+    if (teminal.platform.isAndroid && !teminal.platform.isWeChat) {
+        window.open(androidAppUrl, '_self');
+    } else if (teminal.platform.isIphone && !teminal.platform.isWeChat) {
+        window.open(iosAppUrl, '_self');
+    }
+
+    //----显示遮罩层
+    function showMask() {
+        $(".mask-wrapper").css("display", "block");
+    }
+
+    $(function () {
+        $("#download-btn").on('click', function () {
+            //----在微信里面打开
+            if (teminal.platform.isWeChat) {
+                showMask();
+            }
+        });
+    });
+</script>

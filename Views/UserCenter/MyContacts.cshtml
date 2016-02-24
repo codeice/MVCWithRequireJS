@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "我的联系人";
+}
+
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">我的联系人</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container">
+    <div class="row">
+        <!--菜单部分-->
+        @Html.Partial("Menu")
+        <!--右半部分-->
+        <div class="col-md-9 col-sm-9 col-xs-9 conent-container">
+            <div class="tab-content">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--联系人列表-->
+                        <div class="contact-list">
+                            <div class="contact-header">
+                                <button class="btn-add"> + 新建联系人</button>
+                                <div class="contact-header-right">
+                                    <ul>
+                                        <li><a id="download">模板下载</a></li>
+                                        <li><a id="import">批量导入</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-no-border contactTable">
+                                <thead>
+                                <tr>
+                                    <th class="col-md-2">姓名</th>
+                                    <th class="col-md-2">性别</th>
+                                    <th class="col-md-3">手机号</th>
+                                    <th class="col-md-4">身份证号</th>
+                                    <th class="col-md-1">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="myContactInfo"></tbody>
+                            </table>
+
+                            <div class="pager-actions">
+                                <div class="pager-desc">总共<b id="contacts_PageCount">0</b> 页,当前为第<b id="contacts_PageIndex">0</b>页
+                                </div>
+                                <ul class="pager-bar">
+                                    <li>
+                                        <a class="prev" id="contacts_Prev"></a>
+                                    </li>
+                                    <li>
+                                        <a class="next" id="contacts_Next"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--联系人表单-->
+                        <div id="contactFrom">
+                            @{ Html.RenderAction("ContactForm", "UserCenter"); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section footerScripts
+{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/userCenter/myContactCtrl.js")" src="@Url.Content("~/libs/require.js")">
+    </script>
+}
+
+

@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "登录";
+}
+@section css
+{
+    <link href="@Url.Content("~/Content/css/sportsMatch.css")" rel="stylesheet"/>
+    <link href="@Url.Content("~/Content/css/normalize.css")" rel="stylesheet"/>
+}
+
+<body>
+    <div class="boss">
+        <div class="login_body">
+            <div class="loginbody_top"></div>
+            <div class="login_content">
+                <div class="login_content_top">
+                    <div class="login_content_top_left">赛圈</div>
+                    <div id="loginType" class="login_content_top_right">密码登录</div>
+                </div>
+                <div class="login_content_body">
+                    <div class="lcb_top">
+                        <div class="lcb_top_left">
+                            <div class="lcb_top_left_username">
+                                <div class="lcb_top_left_username_div">
+                                    <input type="text" class="lcb_top_left_username_input" id="CellNumber" placeholder="请输入手机号" maxlength="11" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div id="Pwd" class="lcb_top_left_username">
+                                <div class="lcb_top_left_username_div">
+                                    <input type="password" class="lcb_top_left_username_input" id="Password" placeholder="请输入密码" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div id="VCode" class="lcb_top_left_username">
+                                <div class="lcb_top_left_username_div ">
+                                    <input class="lcb_top_left_username_input" id="txtVcode" placeholder="输入验证码" maxlength="6" autocomplete="off"/>
+                                    <span id="btnSendMsg">
+                                        <input type="button" class="verificationCode-disable" id="sendVCode" value="发送验证码">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--短信快捷登录-->
+                        <div id="messageLogin" class="lcb_top_right">
+                            <span id="lblText">短信快捷登录</span>
+                        </div>
+                        <!--密码登录-->
+                        <div id="passwordLogin" class="lcb_top_right_pwd">
+                            <span id="lblPwdText">密码登录</span>
+                        </div>
+                    </div>
+                    <div class="lcb_center_login" id="btnLogin">登　录</div>
+                    <div class="lcb_btm">
+                        <div class="lcb_btm_autologin">
+                            <input type="checkbox" id="autoLogin" class="checkboxLogin" />
+                            自动登录
+                        </div>
+                        <div class="lcb_btm_fgtpwd">
+                            <a>忘记密码</a>?
+                        </div>
+                    </div>
+                </div>
+                <div class="login_content_bottom">
+                    还没有赛圈账号？<a href="@Url.Action("Register", "Account")">立即注册</a>！
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section footerScripts{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/account/loginCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+}
+
+
+

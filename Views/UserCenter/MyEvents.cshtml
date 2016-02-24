@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "我的赛事";
+}
+
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">我的赛事</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container">
+    <div class="row">
+        <!--菜单部分-->
+        @Html.Partial("Menu")
+        <!--右半部分-->
+        <div class="col-md-9 col-sm-9 col-xs-9 conent-container">
+            <div class="tab-content">
+                <div class="col-md-12 rowTop">
+                    <div class="tab-content">
+                        <div class="event-top" id="event-wrapper">
+                        </div>
+                        <div class="pager-actions">
+                            <div class="pager-desc">总共<b id="Events_PageCount">0</b> 页,当前为第<b id="Events_PageIndex">0</b>页</div>
+                            <ul class="pager-bar">
+                                <li>
+                                    <a class="prev" id="Events_Prev"></a>
+                                </li>
+                                <li>
+                                    <a class="next" id="Events_Next"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section footerScripts
+{
+    <script type="text/javascript" data-main="@Url.Content("~/js/modules/userCenter/myEventsCtrl.js")" src="@Url.Content("~/libs/require.js")">
+    </script>
+}
+
+
+

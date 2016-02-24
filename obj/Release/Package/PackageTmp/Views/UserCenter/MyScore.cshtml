@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "报名完成";
+    Layout = null;
+}
+@*@section css{
+    <link href="~/Content/css/ApplyPublic.css" rel="stylesheet" />
+}*@
+
+
+    <div class="col-md-12">
+        <div class="tab-content">
+            <div id="myScoreInfo" class="box-scroll col-md-12 col-sm-12">
+                <div class="col-md-12">
+                    <div class="myScoreImg col-md-2"></div>
+                    <div class="col-md-10 myAwardsInfo">
+                        <div class="champion"><label>冠军<b>2</b>次</label></div>
+                        <div class="awards"><label>获奖<b>5</b>次</label></div>
+                        <div class="finals"><label>决赛<b>26</b>次</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pager-actions">
+                <div class="pager-desc">总共<b id="Score_PageCount">0</b> 页,当前为第<b id="Score_PageIndex">0</b>页</div>
+                <ul class="pager-bar">
+                    <li>
+                        <a class="prev" id="Score_Prev"></a>
+                    </li>
+                    <li>
+                        <a class="next" id="Score_Next"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   </div>
+
+@*@section footerScripts{
+        <script type="text/javascript" data-main="@Url.Content("~/js/modules/userCenter/myScoreCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+    }*@
+
+

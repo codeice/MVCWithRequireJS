@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "我的订单";
+    Layout = null;
+}
+<div class="row" id="orderApp">
+    <div class="col-md-12" ng-controller="myOrderCtrl" ng-cloak>
+        <ul class="nav nav-pills custom-nav-pills">
+            <li class="active">
+                <a href="#toBePaid" data-toggle="tab" aria-expanded="false">
+                    未支付订单
+                </a>
+            </li>
+            <li>
+                <a href="#paid" data-toggle="tab" aria-expanded="true" ng-click="getPaidOrders(1)">
+                    已支付订单
+                </a>
+            </li>
+            <li>
+                <a href="#all" data-toggle="tab" aria-expanded="true" ng-click="getAllOrders(1)">
+                    所有订单
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+
+            <!--未支付-->
+            <div class="tab-pane fade active in" id="toBePaid">
+                <div class="header-action">
+                    <label class="ui-checkbox check-all-radio">
+                        <input type="checkbox" ng-model="isAllChecked" ng-checked="isAllChecked" ng-change="checkAll()">
+                        <span class=" icon-checkbox"></span>
+                    </label>
+                    <span class="check-all-text">全选</span>
+                </div>
+                <div class="box-scroll">
+                    <div class="nestable-list">
+                        <ul class="ui-list">
+                            <li class="list-item" ng-repeat="order in toBePaidOrders">
+                                <!--一级-->
+                                <div class="item-handle item-order">
+                                    <i class="icon-collapse icon-plus"></i>
+                                    <label class="ui-checkbox item-radio">
+                                        <input type="checkbox" ng-model="order.checked" ng-checked="order.checked" ng-change="getSum()">
+                                        <span class=" icon-checkbox"></span>
+                                    </label>
+                                    <span class="item-title ">
+                                        <span ng-bind="order.CompetitionName"></span>
+                                        <strong>(<em ng-bind="order.Code"></em>)</strong>
+                                    </span>
+                                    <ul class="item-action">
+                                        <li>
+                                            <span class="item-desc">
+                                                <strong ng-bind="order.Balance"></strong>元
+                                            </span>
+                                        </li>
+                                        <li class="item-btn" ng-click="cancelOrder(order.Key)">
+                                            取消
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--二级-->
+                                <ul class="ui-list">
+                                    <li class="list-item" ng-repeat="item in order.OrderItems">
+                                        <div class="item-handle">
+                                            <span class="item-title padding-left-30" ng-bind="item.ProjectName"></span>
+                                            <span class="item-tag" ng-bind="item.PlayerNames"></span>
+                                            <span class="item-desc">
+                                                <strong ng-bind="item.Costs"></strong>元
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-actions">
+                    <span>
+                        <i class="icon-diamond"></i>
+                        订单金额：<strong ng-bind="toBePaidSum"></strong>元
+                    </span>
+                    <button type="button" class="btn-yellow" ng-click="goToPay()">前往支付</button>
+                </div>
+            </div>
+
+            <!--已支付-->
+            <div class="tab-pane fade " id="paid">
+                <div class="box-scroll margin-top-20">
+                    <div class="nestable-list">
+                        <ul class="ui-list">
+                            <li class="list-item" ng-repeat="order in paidOrders">
+                                <div class="item-handle">
+                                    <i class="icon-collapse icon-plus"></i>
+                                    <span class="item-title ">
+                                        <span ng-bind="order.CompetitionName"></span>
+                                        <strong>(<em ng-bind="order.Code"></em>)</strong>
+                                    </span>
+                                    <span class="item-desc">
+                                        <strong ng-bind="order.Balance"></strong>元
+                                    </span>
+                                </div>
+                                <ul class="ui-list">
+                                    <li class="list-item" ng-repeat="item in order.OrderItems">
+                                        <div class="item-handle">
+                                            <span class="item-title" ng-bind="item.ProjectName"></span>
+                                            <span class="item-tag" ng-bind="item.PlayerNames"></span>
+                                            <span class="item-desc">
+                                                <strong ng-bind="item.Costs"></strong>元
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pager-actions">
+                    <div class="pager-desc">总共 <b ng-bind="paidSearchModel.PageCount">0</b> 页,当前为第 <b ng-bind="paidSearchModel.PageIndex"></b> 页 </div>
+                    <ul class="pager-bar">
+                        <li>
+                            <a class="prev" ng-click="paidSearchModel.PageIndex!=1&& changePage(paidSearchModel.PageIndex-1)"></a>
+                        </li>
+                        <li>
+                            <a class="next" ng-click="paidSearchModel.PageIndex!=paidSearchModel.PageCount&& changePage(paidSearchModel.PageIndex+1)"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!--所有订单-->
+            <div class="tab-pane fade " id="all">
+                <div class="box-scroll margin-top-20">
+                    <div class="nestable-list">
+                        <ul class="ui-list">
+                            <li class="list-item" ng-repeat="order in allOrders">
+                                <div class="item-handle">
+                                    <i class="icon-collapse icon-plus"></i>
+                                    <span class="item-title ">
+                                        <span ng-bind="order.CompetitionName"></span>
+                                        <strong>(<em ng-bind="order.Code"></em> <em ng-bind="order.PayStatus|payStatusFormat"></em>)</strong>
+                                    </span>
+                                    <span class="item-desc">
+                                        <strong ng-bind="order.Balance"></strong>元
+                                    </span>
+                                </div>
+                                <ul class="ui-list">
+                                    <li class="list-item" ng-repeat="item in order.OrderItems">
+                                        <div class="item-handle">
+                                            <span class="item-title" ng-bind="item.ProjectName"></span>
+                                            <span class="item-tag" ng-bind="item.PlayerNames"></span>
+                                            <span class="item-desc">
+                                                <strong ng-bind="item.Costs"></strong>元
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pager-actions">
+                    <div class="pager-desc">总共 <b ng-bind="allSearchModel.PageCount">0</b> 页,当前为第 <b ng-bind="allSearchModel.PageIndex"></b> 页</div>
+                    <ul class="pager-bar">
+                        <li>
+                            <a class="prev" ng-click="allSearchModel.PageIndex!=1&& changeAllOrderPage(allSearchModel.PageIndex-1)"></a>
+                        </li>
+                        <li>
+                            <a class="next" ng-click="allSearchModel.PageIndex!=allSearchModel.PageCount&& changeAllOrderPage(allSearchModel.PageIndex+1)"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

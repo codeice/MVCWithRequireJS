@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{281B3F5E-6BBF-4CDD-AF95-8D81D1805F33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CE.PortalWeb</RootNamespace>
+    <AssemblyName>CE.PortalWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserCenterController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\appDownload.css" />
+    <Content Include="Content\css\complete.css" />
+    <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\layout.css" />
+    <Content Include="Content\css\matchDetail.css" />
+    <Content Include="Content\css\nestable.css" />
+    <Content Include="Content\css\normalize.css" />
+    <Content Include="Content\css\order.css" />
+    <Content Include="Content\css\registration.css" />
+    <Content Include="Content\css\userCenter.css" />
+    <Content Include="Content\css\placeholder.css" />
+    <Content Include="Content\css\signUp.css" />
+    <Content Include="Content\css\sportsMatch.css" />
+    <Content Include="Content\images\alipay.jpg" />
+    <Content Include="Content\images\app-code.png" />
+    <Content Include="Content\images\app-QRCode.png" />
+    <Content Include="Content\images\arrow-down.png" />
+    <Content Include="Content\images\arrow-up.png" />
+    <Content Include="Content\images\awards.png" />
+    <Content Include="Content\images\bgTiao.png" />
+    <Content Include="Content\images\bgTiao.png" />
+    <Content Include="Content\images\completeInfo.png" />
+    <Content Include="Content\images\download-bg.png" />
+    <Content Include="Content\images\empty-bg.png" />
+    <Content Include="Content\images\champion.png" />
+    <Content Include="Content\images\chengji2.png" />
+    <Content Include="Content\images\chengji3.png" />
+    <Content Include="Content\images\chengji4.png" />
+    <Content Include="Content\images\completeSucceed.png" />
+    <Content Include="Content\images\completeSucceedDrop.png" />
+    <Content Include="Content\images\empty-bg.png" />
+    <Content Include="Content\images\finals.png" />
+    <Content Include="Content\images\hdIcon01.png" />
+    <Content Include="Content\images\hdIcon02.png" />
+    <Content Include="Content\images\hdIcon03.png" />
+    <Content Include="Content\images\hdIcon04.png" />
+    <Content Include="Content\images\hdIcon05.png" />
+    <Content Include="Content\images\hdIcon06.png" />
+    <Content Include="Content\images\hdIcon07.png" />
+    <Content Include="Content\images\icon-arrow-circle.png" />
+    <Content Include="Content\images\icon-arrow-down.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\bmap.jpg" />
+    <Content Include="Content\images\bolang.png" />
+    <Content Include="Content\images\circle-big.png" />
+    <Content Include="Content\images\circle-little.png" />
+    <Content Include="Content\images\ckbszc.png" />
+    <Content Include="Content\images\clickChange.png" />
+    <Content Include="Content\images\code.png" />
+    <Content Include="Content\images\confirm.png" />
+    <Content Include="Content\images\cross1.png" />
+    <Content Include="Content\images\cross2.png" />
+    <Content Include="Content\images\dowloadPrint.png" />
+    <Content Include="Content\images\event1.jpg" />
+    <Content Include="Content\images\evtymq.jpg" />
+    <Content Include="Content\images\evtymq.png" />
+    <Content Include="Content\images\evtymq2.png" />
+    <Content Include="Content\images\fist.png" />
+    <Content Include="Content\images\flyleft.png" />
+    <Content Include="Content\images\flyright.png" />
+    <Content Include="Content\images\gerenLftbg.png" />
+    <Content Include="Content\images\book-tag.png" />
+    <Content Include="Content\images\gerenwhitbg.png" />
+    <Content Include="Content\images\gerenzhongxin.png" />
+    <Content Include="Content\images\gerenzongse.png" />
+    <Content Include="Content\images\gezxBoy.png" />
+    <Content Include="Content\images\gezxGirl.png" />
+    <Content Include="Content\images\grdd_menuselected.png" />
+    <Content Include="Content\images\grzxwzfdd.png" />
+    <Content Include="Content\images\grzxyzfdd.png" />
+    <Content Include="Content\images\home-banner.jpg" />
+    <Content Include="Content\images\homepage-bg.jpg" />
+    <Content Include="Content\images\icon-cart.png" />
+    <Content Include="Content\images\icon-close.png" />
+    <Content Include="Content\images\icon-coach.png" />
+    <Content Include="Content\images\icon-compete.png" />
+    <Content Include="Content\images\icon-contact.png" />
+    <Content Include="Content\images\icon-delete-active.png" />
+    <Content Include="Content\images\icon-delete.png" />
+    <Content Include="Content\images\icon-diamond.png" />
+    <Content Include="Content\images\icon-download.png" />
+    <Content Include="Content\images\icon-edit-active.png" />
+    <Content Include="Content\images\icon-edit.png" />
+    <Content Include="Content\images\icon-fixed.png" />
+    <Content Include="Content\images\icon-flag.png" />
+    <Content Include="Content\images\icon-item.png" />
+    <Content Include="Content\images\icon-leader.png" />
+    <Content Include="Content\images\icon-location.png" />
+    <Content Include="Content\images\icon-mail.png" />
+    <Content Include="Content\images\icon-minus-m.png" />
+    <Content Include="Content\images\icon-minus.png" />
+    <Content Include="Content\images\icon-other.png" />
+    <Content Include="Content\images\icon-pager.png" />
+    <Content Include="Content\images\icon-person.png" />
+    <Content Include="Content\images\icon-place.png" />
+    <Content Include="Content\images\icon-plus-m.png" />
+    <Content Include="Content\images\icon-plus.png" />
+    <Content Include="Content\images\icon-radio-checked.png" />
+    <Content Include="Content\images\icon-radio-readonly-s.png" />
+    <Content Include="Content\images\icon-radio-readonly.png" />
+    <Content Include="Content\images\icon-radio-s-checked.png" />
+    <Content Include="Content\images\icon-radio-s.png" />
+    <Content Include="Content\images\icon-radio.png" />
+    <Content Include="Content\images\icon-remove.png" />
+    <Content Include="Content\images\icon-time.png" />
+    <Content Include="Content\images\icon-upload.png" />
+    <Content Include="Content\images\icon-warning.png" />
+    <Content Include="Content\images\img1.png" />
+    <Content Include="Content\images\img1_1.png" />
+    <Content Include="Content\images\indexcircllft.png" />
+    <Content Include="Content\images\indexcirclrgb.png" />
+    <Content Include="Content\images\indexdidian.png" />
+    <Content Include="Content\images\indexInputBg.png" />
+    <Content Include="Content\images\indexljbm.png" />
+    <Content Include="Content\images\indexsaishi.png" />
+    <Content Include="Content\images\indexscroll.jpg" />
+    <Content Include="Content\images\indexsearch.png" />
+    <Content Include="Content\images\indexSelectBg.png" />
+    <Content Include="Content\images\indexshijian.png" />
+    <Content Include="Content\images\indexxiangmu.png" />
+    <Content Include="Content\images\indexxuanze.png" />
+    <Content Include="Content\images\index_bigbg.png" />
+    <Content Include="Content\images\index_huxing.png" />
+    <Content Include="Content\images\index_sybg.jpg" />
+    <Content Include="Content\images\list-deco-bg.jpg" />
+    <Content Include="Content\images\list-decoration.jpg" />
+    <Content Include="Content\images\littleblacktan.png" />
+    <Content Include="Content\images\littleTrangle.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\login.jpg" />
+    <Content Include="Content\images\loginbg.png" />
+    <Content Include="Content\images\loginVCbg.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\message_10.png" />
+    <Content Include="Content\images\myHead.png" />
+    <Content Include="Content\images\myHead_Round.png" />
+    <Content Include="Content\images\myScore.png" />
+    <Content Include="Content\images\navbg.png" />
+    <Content Include="Content\images\cansaixinxiqueren_01.png" />
+    <Content Include="Content\images\cansaixinxiqueren_02.png" />
+    <Content Include="Content\images\password.png" />
+    <Content Include="Content\images\photoimg.png" />
+    <Content Include="Content\images\point-green.png" />
+    <Content Include="Content\images\prsbargray.png" />
+    <Content Include="Content\images\prsbaryelw.png" />
+    <Content Include="Content\images\pwd_10.png" />
+    <Content Include="Content\images\registVC.png" />
+    <Content Include="Content\images\samplePhoto.jpg" />
+    <Content Include="Content\images\searchbtn.png" />
+    <Content Include="Content\images\share-ewm.png" />
+    <Content Include="Content\images\share-header-bg.png" />
+    <Content Include="Content\images\share-left.jpg" />
+    <Content Include="Content\images\share-right.jpg" />
+    <Content Include="Content\images\share-wx.png" />
+    <Content Include="Content\images\share-xl.png" />
+    <Content Include="Content\images\signup.jpg" />
+    <Content Include="Content\images\sina_sm.png" />
+    <Content Include="Content\images\stepSQ.png" />
+    <Content Include="Content\images\tick_03.png" />
+    <Content Include="Content\images\title-bg.png" />
+    <Content Include="Content\images\user.png" />
+    <Content Include="Content\images\userCenter-bg.png" />
+    <Content Include="Content\images\wanchengbaoming_01.png" />
+    <Content Include="Content\images\wanchengbaoming_02.png" />
+    <Content Include="Content\images\wdddbtn.png" />
+    <Content Include="Content\images\wddddiamond.png" />
+    <Content Include="Content\images\wdddjiahao.png" />
+    <Content Include="Content\images\wdddjianhao.png" />
+    <Content Include="Content\images\wdddlcnc.png" />
+    <Content Include="Content\images\wdddlcnoc.png" />
+    <Content Include="Content\images\wdssbrown.png" />
+    <Content Include="Content\images\wdsslg.png" />
+    <Content Include="Content\images\wdsslgre.png" />
+    <Content Include="Content\images\icon-home.png" />
+    <Content Include="Content\images\item-bg.png" />
+    <Content Include="Content\images\weibo.png" />
+    <Content Include="Content\images\weixin.png" />
+    <Content Include="Content\images\weixinPay.jpg" />
+    <Content Include="Content\images\weixin_sm.png" />
+    <Content Include="Content\images\zhifubaomingfei_01.png" />
+    <Content Include="Content\images\zhifubaomingfei_02.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="js\common\app.js" />
+    <Content Include="js\common\bdShare.js" />
+    <Content Include="js\common\config.js" />
+    <Content Include="js\common\count.js" />
+    <Content Include="js\common\directive.js" />
+    <Content Include="js\common\nestable.js" />
+    <Content Include="js\common\service.js" />
+    <Content Include="js\modules\account\logOff.js" />
+    <Content Include="js\modules\signUp\confirmCtrl.js" />
+    <Content Include="js\modules\signUp\myRegistrationCtrl.js" />
+    <Content Include="js\modules\userCenter\myContactCtrl.js" />
+    <Content Include="js\modules\signUp\payCtrl.js" />
+    <Content Include="js\modules\userCenter\updateCellNumberCtrl.js" />
+    <Content Include="libs\angular-v1.2.9\angular-http-batch.js" />
+    <Content Include="libs\angular-v1.2.9\angular-http-batch.min.js" />
+    <Content Include="libs\jquery\jquery.nicescroll.min.js" />
+    <Content Include="js\common\uploadFile.js" />
+    <Content Include="js\common\utility.js" />
+    <Content Include="js\modules\account\loginCtrl.js" />
+    <Content Include="js\modules\account\registerCtrl.js" />
+    <Content Include="js\modules\userCenter\myOrderCtrl.js" />
+    <Content Include="js\modules\home\homeCtrl.js" />
+    <Content Include="js\modules\home\matchDetailCtrl.js" />
+    <Content Include="js\modules\userCenter\myEventsCtrl.js" />
+    <Content Include="js\modules\userCenter\myScoreCtrl.js" />
+    <Content Include="js\modules\userCenter\userProfileCtrl.js" />
+    <Content Include="js\common\formValidate.js" />
+    <Content Include="js\modules\signUp\signUpCtrl.js" />
+    <Content Include="js\modules\signUp\completeCtrl.js" />
+    <Content Include="js\requireConfig.js" />
+    <Content Include="js\services\accountService.js" />
+    <Content Include="js\services\demoService.js" />
+    <Content Include="js\services\dictionaryService.js" />
+    <Content Include="js\services\fileService.js" />
+    <Content Include="js\services\homeService.js" />
+    <Content Include="js\services\userCenterService.js" />
+    <Content Include="js\services\signUpService.js" />
+    <Content Include="libs\angular-v1.2.9\angular-route.js" />
+    <Content Include="libs\angular-v1.2.9\angular-route.min.js" />
+    <Content Include="libs\angular-v1.2.9\angular.js" />
+    <Content Include="libs\angular-v1.2.9\angular.min.js" />
+    <Content Include="libs\bootbox\bootbox.js" />
+    <Content Include="libs\bootbox\bootbox.min.js" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap-theme.css" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap-theme.min.css" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap.css" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap.min.css" />
+    <Content Include="libs\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="libs\bootstrap-3.3.5\js\bootstrap.js" />
+    <Content Include="libs\bootstrap-3.3.5\js\bootstrap.min.js" />
+    <Content Include="libs\angular-v1.2.9\angular.min.js.map" />
+    <Content Include="libs\angular-v1.2.9\angular-route.min.js.map" />
+    <None Include="libs\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="libs\jquery\jquery-1.10.2.js" />
+    <Content Include="libs\jquery\jquery-1.10.2.min.js" />
+    <Content Include="libs\jquery\jquery.blockUI.js" />
+    <Content Include="libs\jquery\jquery.cookie.js" />
+    <Content Include="libs\require.js" />
+    <Content Include="libs\uploadify\jquery.uploadify.js" />
+    <Content Include="libs\uploadify\jquery.uploadify.min.js" />
+    <Content Include="libs\uploadify\uploadify-cancel.png" />
+    <Content Include="libs\uploadify\uploadify.css" />
+    <Content Include="libs\uploadify\uploadify.swf" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\SignUp\Apply.cshtml" />
+    <Content Include="Views\Shared\_UserCenterMenu.cshtml" />
+    <Content Include="Views\UserCenter\MyEvents.cshtml" />
+    <Content Include="Views\UserCenter\Menu.cshtml" />
+    <Content Include="Views\UserCenter\MyOrder.cshtml" />
+    <Content Include="Views\SignUp\Complete.cshtml" />
+    <Content Include="Views\UserCenter\UserProfile.cshtml" />
+    <Content Include="Views\UserCenter\MyScore.cshtml" />
+    <Content Include="Views\Home\MatchDetail.cshtml" />
+    <Content Include="Views\Shared\_SharePart.cshtml" />
+    <None Include="Properties\PublishProfiles\CE.Portal.pubxml" />
+    <Content Include="Views\SignUp\Confirm.cshtml" />
+    <Content Include="Views\SignUp\Pay.cshtml" />
+    <Content Include="Views\SignUp\MyRegistration.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\UserCenter\MyContacts.cshtml" />
+    <Content Include="Views\UserCenter\ContactForm.cshtml" />
+    <Content Include="Views\Shared\_RightPage.cshtml" />
+    <Content Include="Views\UserCenter\UpdateCellNumber.cshtml" />
+    <Content Include="Views\Home\AppDownload.cshtml" />
+    <Content Include="Views\SignUp\MemberForm.cshtml" />
+    <Content Include="Views\SignUp\TeamForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap-theme.css.map" />
+    <Content Include="libs\bootstrap-3.3.5\css\bootstrap.css.map" />
+    <Content Include="libs\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="libs\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="libs\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="libs\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="libs\jquery\jquery-1.10.2.min.map" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55205</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/CE.Portal</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

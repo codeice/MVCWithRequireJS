@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "我的成绩";
+}
+<!--面包屑导航-->
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index", "Home")">首页</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">我的成绩</a>
+        </li>
+    </ul>
+</div>
+
+<div class="container page-container">
+    <div class="row">
+        <!--菜单部分-->
+        @Html.Partial("Menu")
+        <!--右半部分-->
+        <div class="col-md-9 col-sm-9 col-xs-9 conent-container">
+            <div class="tab-content">
+                <div class="col-md-12">
+                    <div class="tab-content">
+                        <div id="myScoreInfo" class="box-scroll col-md-12 col-sm-12">
+                            <div class="col-md-12">
+                                <div class="myScoreImg col-md-2"></div>
+                                <div class="col-md-10 myAwardsInfo">
+                                    <div class="champion"><label>冠军<b>2</b>次</label></div>
+                                    <div class="awards"><label>获奖<b>5</b>次</label></div>
+                                    <div class="finals"><label>决赛<b>26</b>次</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pager-actions">
+                            <div class="pager-desc">总共<b id="Score_PageCount">0</b> 页,当前为第<b id="Score_PageIndex">0</b>页</div>
+                            <ul class="pager-bar">
+                                <li>
+                                    <a class="prev" id="Score_Prev"></a>
+                                </li>
+                                <li>
+                                    <a class="next" id="Score_Next"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section footerScripts{
+        <script type="text/javascript" data-main="@Url.Content("~/js/modules/userCenter/myScoreCtrl.js")" src="@Url.Content("~/libs/require.js")"></script>
+    }*@
+
+
